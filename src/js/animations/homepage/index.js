@@ -6,19 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(CSSRulePlugin, ScrollToPlugin, ScrollTrigger);
 
 if(document.querySelector('body.homepage') !== null) {
-    gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
-        ScrollTrigger.create({
-          trigger: section,
-          onEnter: () => goToSection(i)
-        });
-        
-        ScrollTrigger.create({
-          trigger: section,
-          start: "bottom bottom",
-          onEnterBack: () => goToSection(i),
-        });
-    });
-
     // Hero Section
     const heroSectionTl = gsap.timeline({
         scrollTrigger: {
@@ -71,13 +58,26 @@ if(document.querySelector('body.homepage') !== null) {
 
     // Project Section
     require('./_project_section');
+
+    gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
+        ScrollTrigger.create({
+          trigger: section,
+          onEnter: () => goToSection(section)
+        });
+        
+        ScrollTrigger.create({
+          trigger: section,
+          start: "bottom bottom",
+          onEnterBack: () => goToSection(section),
+        });
+    });
 }
 
-function goToSection(i, anim) {
+function goToSection(section, anim) {
     gsap.to(window, {
-      scrollTo: {y: i*innerHeight, autoKill: false},
-      duration: 0.5,
-      ease: "power3.out"
+      scrollTo: {y: section, autoKill: false},
+      duration: 0.4,
+      ease: "power4.in"
     });
     
     if(anim) {

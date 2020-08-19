@@ -7507,22 +7507,7 @@ __webpack_require__.r(__webpack_exports__);
 gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].registerPlugin(gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"], gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__["ScrollToPlugin"], gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__["ScrollTrigger"]);
 
 if (document.querySelector('body.homepage') !== null) {
-  gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].utils.toArray(".homepage .full-section").forEach(function (section, i) {
-    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__["ScrollTrigger"].create({
-      trigger: section,
-      onEnter: function onEnter() {
-        return goToSection(i);
-      }
-    });
-    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__["ScrollTrigger"].create({
-      trigger: section,
-      start: "bottom bottom",
-      onEnterBack: function onEnterBack() {
-        return goToSection(i);
-      }
-    });
-  }); // Hero Section
-
+  // Hero Section
   var heroSectionTl = gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].timeline({
     scrollTrigger: {
       trigger: ".homepage .hero-section",
@@ -7567,16 +7552,32 @@ if (document.querySelector('body.homepage') !== null) {
   }); // Project Section
 
   __webpack_require__(/*! ./_project_section */ "./src/js/animations/homepage/_project_section.js");
+
+  gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].utils.toArray(".homepage .full-section").forEach(function (section, i) {
+    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__["ScrollTrigger"].create({
+      trigger: section,
+      onEnter: function onEnter() {
+        return goToSection(section);
+      }
+    });
+    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__["ScrollTrigger"].create({
+      trigger: section,
+      start: "bottom bottom",
+      onEnterBack: function onEnterBack() {
+        return goToSection(section);
+      }
+    });
+  });
 }
 
-function goToSection(i, anim) {
+function goToSection(section, anim) {
   gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].to(window, {
     scrollTo: {
-      y: i * innerHeight,
+      y: section,
       autoKill: false
     },
-    duration: 0.5,
-    ease: "power3.out"
+    duration: 0.4,
+    ease: "power4.in"
   });
 
   if (anim) {
