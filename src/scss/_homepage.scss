@@ -1,0 +1,207 @@
+.homepage {
+    .hero-section {
+        background-image: url('../images/hero-bkg.jpg');
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+
+        .section-main {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+
+            .small-title {
+                font-family: $secondary-font;
+                font-weight: 700;
+                margin-bottom: 0;
+                text-align: center;
+                line-height: 1;
+                color: white;
+                text-transform: uppercase;
+                font-size: 2.5em;
+            }
+
+            .title {
+                font-family: $secondary-font;
+                font-weight: 700;
+                margin-bottom: 0;
+                text-align: center;
+                line-height: 1;
+                color: white;
+                text-transform: uppercase;
+                font-size: 4em;
+            }
+
+            .text {
+                margin-top: 30vh;
+                font-family: $secondary-font;
+                font-weight: 600;
+                margin-bottom: 0;
+                text-align: center;
+                line-height: 1;
+                color: white;
+                font-size: 1.5em;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    height: 6vh;
+                    width: 3px;
+                    left: 50%;
+                    bottom: 4vh;
+                    transform: translateX(-50%);
+                    background: white;
+                }
+            }
+        }
+    }
+
+    // Service Section
+    .services-section {
+        .services {
+            display: flex;
+            margin: 0 -15px;
+
+            .service {
+                position: relative;
+                width: 25%;
+                height: 100vh;
+                background-color: #000;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                transition: width 0.5s ease-out;
+                position: relative;
+
+                &:first-child {
+                    background-image: url('../images/service-1.jpg');
+                }
+
+                &:nth-child(2) {
+                    background-image: url('../images/service-2.jpg');
+                }
+
+                &:nth-child(3) {
+                    background-image: url('../images/service-3.jpg');
+                }
+
+                &:nth-child(4) {
+                    background-image: url('../images/service-4.jpg');
+                }
+
+                &:nth-child(5) {
+                    background-image: url('../images/service-5.jpg');
+                }
+
+                &::after {
+                    content: "";
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background-color: change-color($color: $secondary-color, $alpha: 0.5);
+                    transform-origin: center;
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                a {
+                    display: inline-block;
+                    position: relative;
+                    z-index: 2;
+                    height: 100%;
+                    width: 100%;
+
+                    p {
+                        height: 100%;
+                        margin: 0;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%) rotate(180deg);
+                        font-family: $secondary-font;
+                        font-weight: 500;
+                        font-size: 2.3em;
+                        color: change-color($color: white, $alpha: 0.5);
+                        writing-mode: vertical-rl;
+                        text-orientation: mixed;
+                        text-align: center;
+                        z-index: 2;
+                        transition: font-size 0.3s ease-in-out;
+                    }
+                }
+
+                &:hover {
+                    width: 30%;
+
+                    &::after {
+                        transform: scaleX(1)
+                    }
+
+                    a {
+                        p {
+                            font-size: 2.7em;
+                            font-weight: 700;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Projects Section
+    .projects-section {
+        position: relative;
+
+        .section-bkg {
+            display: flex;
+            flex-wrap: nowrap;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transition: transform 0.5s ease-out;
+
+            .bkg {
+                flex: 0 0 100%;
+                background-image: url('../images/project-section-1.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        .section-main {
+            display: flex;
+            flex-wrap: nowrap;
+            transform: translateX(10%);
+
+            .slide {
+                flex: 0 0 80%;
+                position: relative;
+                overflow: hidden;
+
+                svg {
+                    width: 100%;
+                    transition: all 0.11s ease-in-out;
+
+                    path {
+                        fill: transparent;
+                    }
+
+                    text {
+                        font-family: $primary-font;
+                        font-weight: 900;
+                        font-size: 36.25px;
+                        fill: change-color($color: #fff, $alpha: 0.3);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
