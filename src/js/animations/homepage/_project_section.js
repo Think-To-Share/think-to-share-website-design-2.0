@@ -1,8 +1,7 @@
 import { gsap } from "gsap";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const projectSectionTl = gsap.timeline({
     scrollTrigger: {

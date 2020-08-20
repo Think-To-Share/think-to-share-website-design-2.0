@@ -7419,12 +7419,10 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/CSSRulePlugin */ "./node_modules/gsap/CSSRulePlugin.js");
-/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
 
 
-
-gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].registerPlugin(gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"], gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__["ScrollTrigger"]);
+gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__["ScrollTrigger"]);
 var projectSectionTl = gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].timeline({
   scrollTrigger: {
     trigger: ".homepage .projects-section",
@@ -7484,6 +7482,34 @@ function fixActiveColor(self) {
     document.querySelector(".homepage .projects-section .section-main .slide:nth-child(3) svg text").style.fill = "#fd8733";
   }
 }
+
+/***/ }),
+
+/***/ "./src/js/animations/homepage/_why_choose_section.js":
+/*!***********************************************************!*\
+  !*** ./src/js/animations/homepage/_why_choose_section.js ***!
+  \***********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__["ScrollTrigger"]);
+var whyChooseSectionTl = gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].timeline({
+  scrollTrigger: {
+    trigger: ".homepage .why-choose-section"
+  }
+});
+whyChooseSectionTl.from('.homepage .why-choose-section .bkg', {
+  scale: 0.8,
+  y: 200,
+  duration: 0.8,
+  ease: "linear"
+});
 
 /***/ }),
 
@@ -7549,7 +7575,10 @@ if (document.querySelector('body.homepage') !== null) {
     y: "500px",
     stagger: 0.2,
     clearProps: "y"
-  }); // Project Section
+  }); // Why Choose Section
+
+  __webpack_require__(/*! ./_why_choose_section */ "./src/js/animations/homepage/_why_choose_section.js"); // Project Section
+
 
   __webpack_require__(/*! ./_project_section */ "./src/js/animations/homepage/_project_section.js");
 

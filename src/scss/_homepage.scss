@@ -4,6 +4,7 @@
         background-size: cover;
         background-position: top center;
         background-repeat: no-repeat;
+        background-attachment: fixed;
 
         .section-main {
             width: 100%;
@@ -148,6 +149,153 @@
                             font-weight: 700;
                             color: #fff;
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    // Why Choose Section
+    .why-choose-section {
+        position: relative;
+        padding: 50px 40px;
+
+        .bkg {
+            height: 100%;
+            width: 100%;
+            background-image: url('../images/why-choose-bkg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        .heading {
+            margin-top: 10vh;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20vh;
+
+            .think-to-share {
+                font-family: $secondary-font;
+                font-size: 1.8em;
+                font-weight: 400;
+                margin-bottom: 0;
+            }
+
+            h2 {
+                font-family: $secondary-font;
+                font-weight: 700;
+                font-size: 4em;
+                text-transform: uppercase;
+            }
+        }
+
+        .text {
+            text-align: center;
+
+            .h3 {
+                font-family: $secondary-font;
+                font-weight: 700;
+                font-size: 2em;
+                color: #fff;
+
+                span {
+                    color: $primary-color;
+                }
+            }
+
+            p {
+                width: 50%;
+                margin: 0 auto;
+                color: #c5c5c5;
+                font-family: $primary-font;
+                font-weight: 400;
+                font-size: 1.2em;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            a {
+                display: inline-block;
+                font-family: $primary-font;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+                font-size: 1.25em;
+                text-decoration: none;
+                padding: 10px 40px;
+                border: 2px  solid #fff;
+                border-top: none;
+                border-bottom: none;
+                position: relative;
+                margin: 0 10px;
+
+                &::first-child {
+                    margin-left: 0;
+                }
+
+                &::last-child {
+                    margin-right: 0;
+                }
+
+                .bdr {
+                    display: block;
+                    height: 2px;
+                    background: #fff;
+                    position: absolute;
+                }
+
+                .bdr1 {
+                    top: 0;
+                    left: 0;
+                    width: 64%;
+                    transition: all .3s ease-in;
+                }
+
+                .bdr2 {
+                    top: 0;
+                    right: 0;
+                    width: 30%;
+                    transition: all .3s ease-in;
+                }
+
+                .bdr3 {
+                    bottom: 0;
+                    left: 0;
+                    width: 30%;
+                    transition: all .3s ease-in;
+                }
+
+                .bdr4 {
+                    bottom: 0;
+                    right: 0;
+                    width: 64%;
+                    transition: all .3s ease-in;
+                }
+
+                &:hover {
+                    .bdr1 {
+                        width: 30%;
+                    }
+                    
+                    .bdr2 {
+                        width: 64%;
+                    }
+
+                    .bdr3 {
+                        width: 64%;
+                    }
+                    
+                    .bdr4 {
+                        width: 30%;
                     }
                 }
             }

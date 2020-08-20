@@ -8795,7 +8795,8 @@ a.text-dark:hover, a.text-dark:focus {
   background-image: url(../public/hero-bkg.jpg);
   background-size: cover;
   background-position: top center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
   .homepage .hero-section .section-main {
     width: 100%;
     position: absolute;
@@ -8921,6 +8922,117 @@ a.text-dark:hover, a.text-dark:focus {
         font-size: 2.7em;
         font-weight: 700;
         color: #fff; }
+
+.homepage .why-choose-section {
+  position: relative;
+  padding: 50px 40px; }
+  .homepage .why-choose-section .bkg {
+    height: 100%;
+    width: 100%;
+    background-image: url(../public/why-choose-bkg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1; }
+  .homepage .why-choose-section .heading {
+    margin-top: 10vh;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20vh; }
+    .homepage .why-choose-section .heading .think-to-share {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.8em;
+      font-weight: 400;
+      margin-bottom: 0; }
+    .homepage .why-choose-section .heading h2 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 4em;
+      text-transform: uppercase; }
+  .homepage .why-choose-section .text {
+    text-align: center; }
+    .homepage .why-choose-section .text .h3 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 2em;
+      color: #fff; }
+      .homepage .why-choose-section .text .h3 span {
+        color: #fd8733; }
+    .homepage .why-choose-section .text p {
+      width: 50%;
+      margin: 0 auto;
+      color: #c5c5c5;
+      font-family: "Heebo", sans-serif;
+      font-weight: 400;
+      font-size: 1.2em; }
+  .homepage .why-choose-section .buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 30px; }
+    .homepage .why-choose-section .buttons a {
+      display: inline-block;
+      font-family: "Heebo", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 1.25em;
+      text-decoration: none;
+      padding: 10px 40px;
+      border: 2px  solid #fff;
+      border-top: none;
+      border-bottom: none;
+      position: relative;
+      margin: 0 10px; }
+      .homepage .why-choose-section .buttons a::first-child {
+        margin-left: 0; }
+      .homepage .why-choose-section .buttons a::last-child {
+        margin-right: 0; }
+      .homepage .why-choose-section .buttons a .bdr {
+        display: block;
+        height: 2px;
+        background: #fff;
+        position: absolute; }
+      .homepage .why-choose-section .buttons a .bdr1 {
+        top: 0;
+        left: 0;
+        width: 64%;
+        -webkit-transition: all .3s ease-in;
+        transition: all .3s ease-in; }
+      .homepage .why-choose-section .buttons a .bdr2 {
+        top: 0;
+        right: 0;
+        width: 30%;
+        -webkit-transition: all .3s ease-in;
+        transition: all .3s ease-in; }
+      .homepage .why-choose-section .buttons a .bdr3 {
+        bottom: 0;
+        left: 0;
+        width: 30%;
+        -webkit-transition: all .3s ease-in;
+        transition: all .3s ease-in; }
+      .homepage .why-choose-section .buttons a .bdr4 {
+        bottom: 0;
+        right: 0;
+        width: 64%;
+        -webkit-transition: all .3s ease-in;
+        transition: all .3s ease-in; }
+      .homepage .why-choose-section .buttons a:hover .bdr1 {
+        width: 30%; }
+      .homepage .why-choose-section .buttons a:hover .bdr2 {
+        width: 64%; }
+      .homepage .why-choose-section .buttons a:hover .bdr3 {
+        width: 64%; }
+      .homepage .why-choose-section .buttons a:hover .bdr4 {
+        width: 30%; }
 
 .homepage .projects-section {
   position: relative; }

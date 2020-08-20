@@ -56,6 +56,9 @@ if(document.querySelector('body.homepage') !== null) {
         clearProps: "y"
     })
 
+    // Why Choose Section
+    require('./_why_choose_section');
+
     // Project Section
     require('./_project_section');
 
