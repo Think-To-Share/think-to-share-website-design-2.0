@@ -62,18 +62,18 @@ if(document.querySelector('body.homepage') !== null) {
     // Project Section
     require('./_project_section');
 
-    gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
-        ScrollTrigger.create({
-          trigger: section,
-          onEnter: () => goToSection(section)
-        });
+    // gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
+    //     ScrollTrigger.create({
+    //       trigger: section,
+    //       onEnter: () => goToSection(section)
+    //     });
         
-        ScrollTrigger.create({
-          trigger: section,
-          start: "bottom bottom",
-          onEnterBack: () => goToSection(section),
-        });
-    });
+    //     ScrollTrigger.create({
+    //       trigger: section,
+    //       start: "bottom bottom",
+    //       onEnterBack: () => goToSection(section),
+    //     });
+    // });
 }
 
 function goToSection(section, anim) {
