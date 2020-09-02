@@ -354,8 +354,83 @@
     }
 
     .category-section {
-        .icon {
-            fill: $primary-color
+        background: url('../images/categories/bkg.jpg');
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+        padding: 10vh 0 5vh 0;
+
+        > .title {
+            font-family: $secondary-font;
+            font-weight: 700;
+            font-size: 4em;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container-main {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        .categories {
+            .category {
+                .inner {
+                    border: 2px solid #fff;
+                    border-radius: 1.5em;
+                    padding: 2em 0.8em;
+                    transition: all 0.3s ease-in;
+                    cursor: pointer;
+
+                    .icon {
+                        width: 40%;
+                        fill: $primary-color;
+                        display: flex;
+                        margin: 0 auto;
+                        margin-bottom: 15px;
+                    }
+
+                    .title {
+                        font-family: $secondary-font;
+                        font-weight: 700;
+                        text-align: center;
+                        margin-bottom: 15px;
+                        font-size: 1.7em;
+                        color: #fff;
+                    }
+
+                    .text {
+                        text-align: center;
+                        font-family: $primary-font;
+                        font-size: 0.9em;
+                        font-weight: 400;
+                        color: #c5c5c5;
+                        margin-bottom: 0;
+                    }
+                }
+
+                &:hover {
+                    .inner {
+                        background-color: #fff;
+                        transform: scale(1.03);
+                        box-shadow: 0 0 20px 12px #ffffff40;
+
+                        .icon {
+                            fill: $secondary-color;
+                        }
+                        
+                        .title {
+                            color: $secondary-color;
+                        }
+
+                        .text {
+                            color: #000;
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
         }
     }
 }

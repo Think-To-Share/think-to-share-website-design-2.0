@@ -62,6 +62,9 @@ if(document.querySelector('body.homepage') !== null) {
     // Project Section
     require('./_project_section');
 
+    // Category section
+    require('./_category_section');
+
     // gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
     //     ScrollTrigger.create({
     //       trigger: section,

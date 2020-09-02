@@ -7409,6 +7409,36 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
 /***/ }),
 
+/***/ "./src/js/animations/homepage/_category_section.js":
+/*!*********************************************************!*\
+  !*** ./src/js/animations/homepage/_category_section.js ***!
+  \*********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__["ScrollTrigger"]);
+var categorySectionTl = gsap__WEBPACK_IMPORTED_MODULE_0__["gsap"].timeline({
+  scrollTrigger: {
+    trigger: ".homepage .category-section"
+  }
+});
+categorySectionTl.from('.homepage .category-section .categories .category', {
+  autoAlpha: 0,
+  scale: 0,
+  rotate: 180,
+  duration: 1,
+  stagger: 1,
+  ease: "slow(0.7, 0.7, false)"
+});
+
+/***/ }),
+
 /***/ "./src/js/animations/homepage/_project_section.js":
 /*!********************************************************!*\
   !*** ./src/js/animations/homepage/_project_section.js ***!
@@ -7625,7 +7655,10 @@ if (document.querySelector('body.homepage') !== null) {
   __webpack_require__(/*! ./_why_choose_section */ "./src/js/animations/homepage/_why_choose_section.js"); // Project Section
 
 
-  __webpack_require__(/*! ./_project_section */ "./src/js/animations/homepage/_project_section.js"); // gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
+  __webpack_require__(/*! ./_project_section */ "./src/js/animations/homepage/_project_section.js"); // Category section
+
+
+  __webpack_require__(/*! ./_category_section */ "./src/js/animations/homepage/_category_section.js"); // gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
   //     ScrollTrigger.create({
   //       trigger: section,
   //       onEnter: () => goToSection(section)
