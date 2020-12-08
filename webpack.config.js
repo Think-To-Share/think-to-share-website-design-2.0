@@ -1,74 +1,63 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const webpack = require('webpack');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     entry: './src/js/app.js',
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: './js/app.js',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/app.js'
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
+                test: /\.m?js$/,
                 exclude: /node_modules/,
-                options: {
-                    presets: ['@babel/preset-env']
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
                 }
             },
-            {
-                test: /\.(sa|sc|c)ss$/,
 
+            {
+                test: /\.(sc|sa|c)ss$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: process.env.NODE_ENV === 'development',
-                        }
-                    },
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            config: {
-                                path: 'postcss.config.js'
-                            }
-                        }
-                    },
+                    'postcss-loader',
                     'sass-loader',
-                ],
+                ]
             },
 
             {
-                test: /\.(jpg|png|webp|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                test: /\.(jpe?g|png|webp|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            publicPath: '../assets/',
-                            outputPath: 'assets'
+                            context: path.resolve(__dirname, 'src'),
+                            name: '[path][name]-[hash].[ext]',
+                            publicPath: '../public/',
+                            outputPath: 'public'
                         }
                     }
                 ]
             }
         ]
     },
-    optimization: {
-        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
-    },
     plugins: [
         new MiniCssExtractPlugin({
-          // Options similar to the same options in webpackOptions.output
-          // both options are optional
-          filename: './css/[name].css',
-        }),
+            filename: 'css/app.css',
+        })
     ],
-    stats: {
-        colors: true
+    optimization: {
+        minimizer: [
+            new TerserPlugin(),
+            new CssMinimizerPlugin(),
+        ],
     },
     devtool: 'source-map'
-};
+}
