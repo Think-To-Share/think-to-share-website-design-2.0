@@ -1,4 +1,5 @@
 .homepage {
+    // Hero Section
     .hero-section {
         background-image: url('../images/hero-bkg.jpg');
         background-size: cover;
@@ -353,6 +354,7 @@
         }
     }
 
+    // Category Section
     .category-section {
         background: url('../images/categories/bkg.jpg');
         background-size: cover;
@@ -434,11 +436,93 @@
         }
     }
 
+    // Blog Section
+    .blog-section {
+        background-image: url('../images/blog-section/bkg.jpg');
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+
+        .title {
+            width: 100%;
+            font-family: $secondary-font;
+            font-weight: 700;
+            text-align: center;
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 10vh;
+        }
+
+        .blog {
+            .content-side {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .meta {
+                    font-family: $primary-font;
+                    font-weight: 400;
+                    color: #fff;
+                    font-size: 1.5em;
+                    margin-bottom: 5px;
+                }
+
+                .blog-title {
+                    font-family: $primary-font;
+                    font-weight: 900;
+                    color: $primary-color;
+                    text-transform: uppercase;
+                    font-size: 2.6em;
+                }
+
+                .excerpt {
+                    font-family: $primary-font;
+                    font-weight: 400;
+                    color: #c5c5c5;
+                }
+            }
+
+            .image-side {
+                .img-container {
+                    display: flex;
+                    justify-content: flex-end;
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 15px;
+                        height: 90%;
+                        background-color: $primary-color;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-top-left-radius: 10em;
+                        border-bottom-left-radius: 10em;
+                    }
+
+                    img {
+                        width: calc(100% - 10px);
+                        border-radius: 5px;
+                        position: relative;
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+    }
+
+    // Faq section
     .faq-section {
         background-image: url('../images/faq/bkg.jpg');
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
 
         .title {
             width: 100%;
@@ -479,12 +563,14 @@
         }
     }
 
+    // Testimonial Section
     .testimonial-section {
         background-image: url('../images/testimonial/bkg.jpg');
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        padding-top: 19vh;
 
         .title {
             width: 100%;
@@ -493,6 +579,7 @@
             text-align: center;
             font-size: 3em;
             color: #fff;
+            margin-bottom: 30px;
 
             span {
                 color: $primary-color;
@@ -573,6 +660,45 @@
                         text-align: center;
                         margin-bottom: 0;
                     }
+                }
+            }
+        }
+    }
+
+    // Our Management Section
+    .our-management-section {
+        background-image: url('../images/our-management/bkg.jpg');
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+
+        .section-main {
+            .images {
+                position: relative;
+                height: 500px;
+
+                .circle {
+                    width: 100px;
+                    height: 100px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    position: absolute;
+
+                    &:first-child {
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+
+                    // &:nth-child(2) {
+                    //     left: 0;
+                    //     bottom: 0;
+                    // }
+
+                    // &:nth-child(3) {
+                    //     left: 70%;
+                    //     bottom: 0;
+                    // }
                 }
             }
         }

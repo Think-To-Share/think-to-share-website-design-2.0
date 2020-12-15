@@ -303,6 +303,34 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
 __webpack_require__(/*! ./animations */ "./src/js/animations/index.js");
 
+__webpack_require__(/*! ./homepage */ "./src/js/homepage.js");
+
+/***/ }),
+
+/***/ "./src/js/homepage.js":
+/*!****************************!*
+  !*** ./src/js/homepage.js ***!
+  \****************************/
+/***/ (function() {
+
+var mainCircle = document.querySelector('.our-management-section .section-main .images .circle:first-child');
+var mainCircleTopOffset = mainCircle.offsetTop;
+var mainCircleLeftOffset = mainCircle.offsetLeft;
+var circleOne = document.querySelector('.our-management-section .section-main .images .circle:nth-child(2)');
+var circleTwo = document.querySelector('.our-management-section .section-main .images .circle:nth-child(3)');
+var circleThree = document.querySelector('.our-management-section .section-main .images .circle:nth-child(4)');
+var circleFour = document.querySelector('.our-management-section .section-main .images .circle:nth-child(5)');
+var circleFive = document.querySelector('.our-management-section .section-main .images .circle:nth-child(6)');
+setToOrbit(0, 50, circleOne);
+setToOrbit(10, 50, circleTwo);
+
+function setToOrbit(angle, distance, element) {
+  var left = mainCircleLeftOffset + distance * Math.sin(angle * Math.PI / 180.0);
+  var top = mainCircleTopOffset + distance * Math.cos(angle * Math.PI / 180.0);
+  element.style.top = "".concat(top, "px");
+  element.style.left = "".concat(left, "px");
+}
+
 /***/ }),
 
 /***/ "./node_modules/gsap/CSSPlugin.js":

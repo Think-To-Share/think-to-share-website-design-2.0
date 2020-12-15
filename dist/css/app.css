@@ -16582,11 +16582,107 @@ h3 {
   color: #000;
   font-size: 1em;
 }
+.homepage .blog-section {
+  background-image: url(../public/images/blog-section/bkg-d1d858ae2e5d66ab4f64205e7661fbab.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.homepage .blog-section .title {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  margin-bottom: 10vh;
+}
+.homepage .blog-section .blog .content-side {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.homepage .blog-section .blog .content-side .meta {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+.homepage .blog-section .blog .content-side .blog-title {
+  font-family: "Heebo", sans-serif;
+  font-weight: 900;
+  color: #fd8733;
+  text-transform: uppercase;
+  font-size: 2.6em;
+}
+.homepage .blog-section .blog .content-side .excerpt {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  color: #c5c5c5;
+}
+.homepage .blog-section .blog .image-side .img-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
+}
+.homepage .blog-section .blog .image-side .img-container::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 90%;
+  background-color: #fd8733;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-top-left-radius: 10em;
+  border-bottom-left-radius: 10em;
+}
+.homepage .blog-section .blog .image-side .img-container img {
+  width: calc(100% - 10px);
+  border-radius: 5px;
+  position: relative;
+  z-index: 2;
+}
 .homepage .faq-section {
   background-image: url(../public/images/faq/bkg-27b7956ce78d1a4f0c35e3e0fab3f5e4.jpg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .homepage .faq-section .title {
   width: 100%;
@@ -16625,6 +16721,7 @@ h3 {
   background-position: center top;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  padding-top: 19vh;
 }
 .homepage .testimonial-section .title {
   width: 100%;
@@ -16633,6 +16730,7 @@ h3 {
   text-align: center;
   font-size: 3em;
   color: #fff;
+  margin-bottom: 30px;
 }
 .homepage .testimonial-section .title span {
   color: #fd8733;
@@ -16696,6 +16794,29 @@ h3 {
   color: #276db4;
   text-align: center;
   margin-bottom: 0;
+}
+.homepage .our-management-section {
+  background-image: url(../public/images/our-management/bkg-5c82334e249d9421af992e346c7b0908.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.homepage .our-management-section .section-main .images {
+  position: relative;
+  height: 500px;
+}
+.homepage .our-management-section .section-main .images .circle {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+}
+.homepage .our-management-section .section-main .images .circle:first-child {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=app.css.map*/
