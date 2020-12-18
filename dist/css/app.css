@@ -16162,7 +16162,7 @@ h3 {
   overflow-y: scroll;
 }
 .homepage .full-section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   max-width: 100%;
   overflow: hidden;
@@ -16174,14 +16174,17 @@ h3 {
   background-position: top center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .homepage .hero-section .section-main {
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 .homepage .hero-section .section-main .small-title {
   font-family: "Poppins", sans-serif;
@@ -16451,6 +16454,10 @@ h3 {
 }
 .homepage .projects-section {
   position: relative;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
 }
 .homepage .projects-section .section-bkg {
   display: -webkit-box;
@@ -16517,9 +16524,17 @@ h3 {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
-  padding: 10vh 0 5vh 0;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.homepage .category-section > .title {
+.homepage .category-section .holder > .title {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 4em;
@@ -16527,11 +16542,11 @@ h3 {
   text-align: center;
   margin-bottom: 30px;
 }
-.homepage .category-section .container-main {
+.homepage .category-section .holder .container-main {
   width: 80%;
   margin: 0 auto;
 }
-.homepage .category-section .categories .category .inner {
+.homepage .category-section .holder .categories .category .inner {
   border: 2px solid #fff;
   border-radius: 1.5em;
   padding: 2em 0.8em;
@@ -16539,7 +16554,7 @@ h3 {
   transition: all 0.3s ease-in;
   cursor: pointer;
 }
-.homepage .category-section .categories .category .inner .icon {
+.homepage .category-section .holder .categories .category .inner .icon {
   width: 40%;
   fill: #fd8733;
   display: -webkit-box;
@@ -16549,7 +16564,7 @@ h3 {
   margin: 0 auto;
   margin-bottom: 15px;
 }
-.homepage .category-section .categories .category .inner .title {
+.homepage .category-section .holder .categories .category .inner .title {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   text-align: center;
@@ -16557,7 +16572,7 @@ h3 {
   font-size: 1.7em;
   color: #fff;
 }
-.homepage .category-section .categories .category .inner .text {
+.homepage .category-section .holder .categories .category .inner .text {
   text-align: center;
   font-family: "Heebo", sans-serif;
   font-size: 0.9em;
@@ -16565,20 +16580,20 @@ h3 {
   color: #c5c5c5;
   margin-bottom: 0;
 }
-.homepage .category-section .categories .category:hover .inner {
+.homepage .category-section .holder .categories .category:hover .inner {
   background-color: #fff;
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
   -webkit-box-shadow: 0 0 20px 12px #ffffff40;
           box-shadow: 0 0 20px 12px #ffffff40;
 }
-.homepage .category-section .categories .category:hover .inner .icon {
+.homepage .category-section .holder .categories .category:hover .inner .icon {
   fill: #276db4;
 }
-.homepage .category-section .categories .category:hover .inner .title {
+.homepage .category-section .holder .categories .category:hover .inner .title {
   color: #276db4;
 }
-.homepage .category-section .categories .category:hover .inner .text {
+.homepage .category-section .holder .categories .category:hover .inner .text {
   color: #000;
   font-size: 1em;
 }
@@ -16817,6 +16832,114 @@ h3 {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+.homepage .contact-us-section {
+  background-image: url(../public/images/contact-us-section/bkg-8dda578cba09f0d7e14734c951d356b5.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.homepage .contact-us-section .title {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+.homepage .contact-us-section .title span {
+  color: #fd8733;
+}
+.homepage .contact-us-section .small-title {
+  width: 100%;
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: #c5c5c5;
+}
+.homepage .contact-us-section .section-main form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.homepage .contact-us-section .section-main form .form-group {
+  padding: 0 10px;
+}
+.homepage .contact-us-section .section-main form .form-group input,
+.homepage .contact-us-section .section-main form .form-group select,
+.homepage .contact-us-section .section-main form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.homepage .contact-us-section .section-main form .form-group input:focus,
+.homepage .contact-us-section .section-main form .form-group select:focus,
+.homepage .contact-us-section .section-main form .form-group textarea:focus {
+  outline: none;
+  border-color: #fd8733;
+}
+.homepage .contact-us-section .section-main form .btn-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.homepage .contact-us-section .section-main form .btn-container button {
+  background: transparent;
+  border: none;
+  padding: 5px 0;
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  position: relative;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.homepage .contact-us-section .section-main form .btn-container button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 54%;
+  height: 3px;
+  background: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.homepage .contact-us-section .section-main form .btn-container button:hover {
+  color: #fd8733;
+}
+.homepage .contact-us-section .section-main form .btn-container button:hover::after {
+  background: #fd8733;
+  width: 100%;
+}
+.homepage .contact-us-section .section-main form .btn-container button:focus {
+  outline: none;
 }
 
 /*# sourceMappingURL=app.css.map*/
