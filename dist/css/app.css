@@ -16815,25 +16815,78 @@ h3 {
   background-position: center top;
   background-repeat: no-repeat;
 }
-.homepage .our-management-section .section-main .images {
+.homepage .our-management-section .title {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+.homepage .our-management-section .small-title {
+  width: 100%;
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: #c5c5c5;
+}
+.homepage .our-management-section .section-main {
+  margin-top: 40px;
+}
+.homepage .our-management-section .section-main .person {
+  cursor: pointer;
+}
+.homepage .our-management-section .section-main .person .figure {
+  width: calc(100% - 30px);
+}
+.homepage .our-management-section .section-main .person .description-center {
   position: relative;
-  height: 500px;
+  width: 100%;
+  height: 0;
 }
-.homepage .our-management-section .section-main .images .circle {
-  width: 100px;
-  height: 100px;
-  background-color: #fff;
-  border-radius: 50%;
+.homepage .our-management-section .section-main .person .description-center .description {
   position: absolute;
-}
-.homepage .our-management-section .section-main .images .circle:first-child {
-  left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  left: 30px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: calc(100% - 30px);
+  background-color: #fff;
+  padding: 15px 30px;
+  font-family: "Poppins", sans-serif;
+  color: #276db4;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  -webkit-transition-property: background, color, -webkit-box-shadow;
+  transition-property: background, color, -webkit-box-shadow;
+  transition-property: background, color, box-shadow;
+  transition-property: background, color, box-shadow, -webkit-box-shadow;
+}
+.homepage .our-management-section .section-main .person .description-center .description h5 {
+  font-size: 1.2em;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+.homepage .our-management-section .section-main .person .description-center .description p {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+.homepage .our-management-section .section-main .person .description-center .description:hover {
+  background: #fd8733;
+  color: #fff;
+  -webkit-box-shadow: 0 0 18px 10px rgba(253, 135, 51, 0.3);
+          box-shadow: 0 0 18px 10px rgba(253, 135, 51, 0.3);
+}
+.homepage .our-management-section .section-main .person:hover .description-center .description {
+  background: #fd8733;
+  color: #fff;
+  -webkit-box-shadow: 0 0 18px 10px rgba(253, 135, 51, 0.3);
+          box-shadow: 0 0 18px 10px rgba(253, 135, 51, 0.3);
 }
 .homepage .contact-us-section {
-  background-image: url(../public/images/contact-us-section/bkg-8dda578cba09f0d7e14734c951d356b5.jpg);
+  background-image: url(../public/images/contact-us-section/bkg-922485a18d50f750f746962538755a35.jpg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -16847,11 +16900,14 @@ h3 {
       -ms-flex-align: center;
           align-items: center;
 }
+.homepage .contact-us-section .container-fluid, .homepage .contact-us-section .container-sm, .homepage .contact-us-section .container-md, .homepage .contact-us-section .container-lg, .homepage .contact-us-section .container-xl {
+  padding: 0 10%;
+}
 .homepage .contact-us-section .title {
   width: 100%;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  text-align: center;
+  text-align: left;
   font-size: 3em;
   color: #fff;
   margin-bottom: 30px;
@@ -16864,8 +16920,9 @@ h3 {
   width: 100%;
   font-family: "Heebo", sans-serif;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
   color: #c5c5c5;
+  padding: 0 10px;
 }
 .homepage .contact-us-section .section-main form {
   display: -webkit-box;
@@ -16901,10 +16958,11 @@ h3 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0 10px;
 }
 .homepage .contact-us-section .section-main form .btn-container button {
   background: transparent;

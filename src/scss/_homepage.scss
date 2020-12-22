@@ -680,33 +680,84 @@
         background-position: center top;
         background-repeat: no-repeat;
 
+        .title {
+            width: 100%;
+            font-family: $secondary-font;
+            font-weight: 700;
+            text-align: center;
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 30px;
+            margin-bottom: 10px;
+        }
+
+        .small-title {
+            width: 100%;
+            font-family: $primary-font;
+            font-weight: 400;
+            text-align: center;
+            color: #c5c5c5;
+        }
+
         .section-main {
-            .images {
-                position: relative;
-                height: 500px;
+            margin-top: 40px;
 
-                .circle {
-                    width: 100px;
-                    height: 100px;
-                    background-color: #fff;
-                    border-radius: 50%;
-                    position: absolute;
+            $gap: 30px;
 
-                    &:first-child {
-                        left: 50%;
+            @mixin person-hover {
+                background: $primary-color;
+                color: #fff;
+                box-shadow: 0 0 18px 10px change-color($color: $primary-color, $alpha: 0.3);
+            }
+
+            .person {
+                cursor: pointer;
+
+                .figure {
+                    width: calc(100% - #{$gap});
+                }
+
+                .description-center {
+                    position: relative;
+                    width: 100%;
+                    height: 0;
+
+                    .description {
+                        position: absolute;
                         top: 50%;
-                        transform: translate(-50%, -50%);
+                        left: $gap;
+                        transform: translateY(-50%);
+                        width: calc(100% - #{$gap});
+                        background-color: #fff;
+                        padding: 15px 30px;
+                        font-family: $secondary-font;
+                        color: $secondary-color;
+                        transition: all 200ms ease-in-out;
+                        transition-property: background, color, box-shadow;
+    
+                        h5 {
+                            font-size: 1.2em;
+                            margin-bottom: 0;
+                            font-weight: 700;
+                        }
+    
+                        p {
+                            margin-bottom: 0;
+                            font-weight: 400;
+                        }
+
+                        &:hover {
+                            @include person-hover;
+                        }
                     }
+                }
 
-                    // &:nth-child(2) {
-                    //     left: 0;
-                    //     bottom: 0;
-                    // }
-
-                    // &:nth-child(3) {
-                    //     left: 70%;
-                    //     bottom: 0;
-                    // }
+                &:hover {
+                    .description-center {
+                        .description {
+                            @include person-hover;
+                        }
+                    }
                 }
             }
         }
@@ -722,11 +773,15 @@
         display: flex;
         align-items: center;
 
+        .container-fluid {
+            padding: 0 10%;
+        }
+
         .title {
             width: 100%;
             font-family: $secondary-font;
             font-weight: 700;
-            text-align: center;
+            text-align: left;
             font-size: 3em;
             color: #fff;
             margin-bottom: 30px;
@@ -741,8 +796,9 @@
             width: 100%;
             font-family: $primary-font;
             font-weight: 400;
-            text-align: center;
+            text-align: left;
             color: #c5c5c5;
+            padding: 0 10px;
         }
 
         .section-main {
@@ -772,7 +828,8 @@
                 .btn-container {
                     width: 100%;
                     display: flex;
-                    justify-content: center;
+                    justify-content: flex-start;
+                    padding: 0 10px;
 
                     button {
                         background: transparent;

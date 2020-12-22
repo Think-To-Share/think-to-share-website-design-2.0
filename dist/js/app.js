@@ -30,6 +30,37 @@ categorySectionTl.from('.homepage .category-section .categories .category', {
 
 /***/ }),
 
+/***/ "./src/js/animations/homepage/_management_section.js":
+/*!***********************************************************!*
+  !*** ./src/js/animations/homepage/_management_section.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+  scrollTrigger: {
+    trigger: ".homepage .our-management-section"
+  }
+});
+tl.from('.homepage .our-management-section .section-main .person .figure', {
+  autoAlpha: 0,
+  x: '-20px',
+  stagger: 0.2
+});
+tl.from('.homepage .our-management-section .section-main .person .description', {
+  autoAlpha: 0,
+  y: '-30px',
+  stagger: 0.2
+});
+
+/***/ }),
+
 /***/ "./src/js/animations/homepage/_project_section.js":
 /*!********************************************************!*
   !*** ./src/js/animations/homepage/_project_section.js ***!
@@ -259,7 +290,10 @@ if (document.querySelector('body.homepage') !== null) {
   __webpack_require__(/*! ./_project_section */ "./src/js/animations/homepage/_project_section.js"); // Category section
 
 
-  __webpack_require__(/*! ./_category_section */ "./src/js/animations/homepage/_category_section.js"); // gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
+  __webpack_require__(/*! ./_category_section */ "./src/js/animations/homepage/_category_section.js"); // Management Section
+
+
+  __webpack_require__(/*! ./_management_section */ "./src/js/animations/homepage/_management_section.js"); // gsap.utils.toArray(".homepage .full-section").forEach((section, i) => {
   //     ScrollTrigger.create({
   //       trigger: section,
   //       onEnter: () => goToSection(section)
