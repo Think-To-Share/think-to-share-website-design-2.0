@@ -323,6 +323,8 @@
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
+                display: none;
+                transition: display 0.5s ease-in;
             }
         }
 

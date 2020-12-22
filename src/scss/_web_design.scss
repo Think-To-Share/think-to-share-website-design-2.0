@@ -1,0 +1,31 @@
+.web-design {
+    .hero-section {
+        background-image: url('../images/web-design-page/hero-section-bkg.jpg');
+        background-size: cover;
+        background-position: center;
+
+        .title {
+            font-family: $secondary-font;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            font-size: 4em;
+            color: #fff;
+            margin-bottom: 30px;
+            
+            span {
+                color: $primary-color;
+            }
+        }
+
+        .small-title {
+            font-family: $secondary-font;
+            font-weight: 600;
+            color: #c5c5c5;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.6em;
+        }
+    }
+}

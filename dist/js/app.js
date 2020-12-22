@@ -46,32 +46,37 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPAC
 var projectSectionTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
   scrollTrigger: {
     trigger: ".homepage .projects-section",
-    start: 'top top',
     scrub: 1,
     pin: true,
     end: "+=" + document.querySelector('.homepage .projects-section').offsetWidth,
     snap: {
       snapTo: "labels",
       duration: {
-        min: 0.5,
-        max: 1
+        min: 0.2,
+        max: 3
       },
-      delay: 0.5,
+      delay: 0,
       ease: "power1.inOut"
     },
-    onUpdate: fixActiveColor,
-    onRefresh: fixActiveColor
+    onUpdate: animationUpdate,
+    onRefresh: animationUpdate
   }
+}); // Dynamic Animation
+
+var slides = document.querySelectorAll('.homepage .projects-section .section-main .slide');
+projectSectionTl.addLabel("label-start");
+slides.forEach(function (slide, index) {
+  if (slides.length == index + 1) {
+    return;
+  }
+
+  var x_move = 80 * (index + 1) - 10;
+  projectSectionTl.addLabel("label-".concat(index + 1));
+  projectSectionTl.to('.homepage .projects-section .section-main', {
+    x: "-".concat(x_move, "%"),
+    duration: 1
+  }).addLabel("label-".concat(index + 1));
 });
-projectSectionTl.addLabel('1st');
-projectSectionTl.to(".homepage .projects-section .section-main", {
-  x: "-70%",
-  duration: 1
-}).addLabel('2nd');
-projectSectionTl.to(".homepage .projects-section .section-main", {
-  x: "-150%",
-  duration: 1
-}).addLabel('3rd');
 document.querySelectorAll(".homepage .projects-section .section-main .slide svg text").forEach(function (text) {
   text.addEventListener('mouseenter', function (e) {
     document.querySelector('.homepage .projects-section .section-bkg').style.transform = "scale(1.08)";
@@ -83,23 +88,30 @@ document.querySelectorAll(".homepage .projects-section .section-main .slide svg 
   });
 });
 
-function fixActiveColor(self) {
-  if (self.progress >= 0 && self.progress < 0.4) {
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(2) svg text").style.fill = "rgba(255, 255, 255, 0.3)";
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(3) svg text").style.fill = "rgba(255, 255, 255, 0.3)";
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(1) svg text").style.fill = "#fd8733";
-  }
+function animationUpdate(self) {
+  var animation_count = slides.length - 1;
+  var step = 1 / animation_count - 0.01;
 
-  if (self.progress >= 0.4 && self.progress < 0.9) {
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(1) svg text").style.fill = "rgba(255, 255, 255, 0.3)";
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(3) svg text").style.fill = "rgba(255, 255, 255, 0.3)";
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(2) svg text").style.fill = "#fd8733";
-  }
-
-  if (self.progress >= 0.9 && self.progress == 1) {
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(1) svg text").style.fill = "rgba(255, 255, 255, 0.3)";
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(2) svg text").style.fill = "rgba(255, 255, 255, 0.3)";
-    document.querySelector(".homepage .projects-section .section-main .slide:nth-child(3) svg text").style.fill = "#fd8733";
+  for (var i = 0; i < 1; i += step) {
+    if (self.progress >= i && self.progress < i + step) {
+      (function () {
+        var active_index = Math.ceil(i * animation_count);
+        slides.forEach(function (slide, slide_index) {
+          if (active_index == slide_index) {
+            slide.querySelector('svg text').style.fill = "#fd8733";
+          } else {
+            slide.querySelector('svg text').style.fill = "rgba(255, 255, 255, 0.3)";
+          }
+        });
+        document.querySelectorAll('.homepage .projects-section .section-bkg .bkg').forEach(function (bkg, bkg_index) {
+          if (active_index == bkg_index) {
+            bkg.style.display = "block";
+          } else {
+            bkg.style.display = "none";
+          }
+        });
+      })();
+    }
   }
 }
 
@@ -230,13 +242,14 @@ if (document.querySelector('body.homepage') !== null) {
   var serviceSectionTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
     scrollTrigger: {
       trigger: ".homepage .service-section",
-      start: "bottom bottom",
+      start: 'middle',
       markers: false
     }
   });
   serviceSectionTl.from('.homepage .services-section .services .service', {
     y: "500px",
     stagger: 0.2,
+    autoAlpha: 0,
     clearProps: "y"
   }); // Why Choose Section
 
@@ -285,6 +298,56 @@ function goToSection(section, anim) {
 
 __webpack_require__(/*! ./homepage */ "./src/js/animations/homepage/index.js");
 
+__webpack_require__(/*! ./web-design */ "./src/js/animations/web-design/index.js");
+
+/***/ }),
+
+/***/ "./src/js/animations/web-design/_hero_section.js":
+/*!*******************************************************!*
+  !*** ./src/js/animations/web-design/_hero_section.js ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+var section_name = '.web-design .hero-section';
+var section = document.querySelector(section_name);
+var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+  scrollTrigger: {
+    trigger: section
+  }
+});
+tl.from("".concat(section_name, " .title"), {
+  yPercent: '-10',
+  alpha: 0,
+  duration: 1
+});
+tl.from("".concat(section_name, " .title span"), {
+  autoAlpha: 0
+});
+tl.from("".concat(section_name, " .small-title"), {
+  autoAlpha: 0,
+  scaleY: 0.5,
+  xPercent: 10
+});
+
+/***/ }),
+
+/***/ "./src/js/animations/web-design/index.js":
+/*!***********************************************!*
+  !*** ./src/js/animations/web-design/index.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+if (document.querySelector('body.web-design') !== null) {
+  __webpack_require__(/*! ./_hero_section */ "./src/js/animations/web-design/_hero_section.js");
+}
+
 /***/ }),
 
 /***/ "./src/js/app.js":
@@ -313,23 +376,22 @@ __webpack_require__(/*! ./homepage */ "./src/js/homepage.js");
   \****************************/
 /***/ (function() {
 
-var mainCircle = document.querySelector('.our-management-section .section-main .images .circle:first-child');
-var mainCircleTopOffset = mainCircle.offsetTop;
-var mainCircleLeftOffset = mainCircle.offsetLeft;
-var circleOne = document.querySelector('.our-management-section .section-main .images .circle:nth-child(2)');
-var circleTwo = document.querySelector('.our-management-section .section-main .images .circle:nth-child(3)');
-var circleThree = document.querySelector('.our-management-section .section-main .images .circle:nth-child(4)');
-var circleFour = document.querySelector('.our-management-section .section-main .images .circle:nth-child(5)');
-var circleFive = document.querySelector('.our-management-section .section-main .images .circle:nth-child(6)');
-setToOrbit(0, 50, circleOne);
-setToOrbit(10, 50, circleTwo);
-
-function setToOrbit(angle, distance, element) {
-  var left = mainCircleLeftOffset + distance * Math.sin(angle * Math.PI / 180.0);
-  var top = mainCircleTopOffset + distance * Math.cos(angle * Math.PI / 180.0);
-  element.style.top = "".concat(top, "px");
-  element.style.left = "".concat(left, "px");
-}
+// const mainCircle = document.querySelector('.our-management-section .section-main .images .circle:first-child');
+// const mainCircleTopOffset = mainCircle.offsetTop;
+// const mainCircleLeftOffset = mainCircle.offsetLeft;
+// const circleOne = document.querySelector('.our-management-section .section-main .images .circle:nth-child(2)');
+// const circleTwo = document.querySelector('.our-management-section .section-main .images .circle:nth-child(3)');
+// const circleThree = document.querySelector('.our-management-section .section-main .images .circle:nth-child(4)');
+// const circleFour = document.querySelector('.our-management-section .section-main .images .circle:nth-child(5)');
+// const circleFive = document.querySelector('.our-management-section .section-main .images .circle:nth-child(6)');
+// setToOrbit(0, 50, circleOne)
+// setToOrbit(10, 50, circleTwo)
+// function setToOrbit(angle, distance, element) {
+//     let left = mainCircleLeftOffset + (distance * Math.sin(angle * Math.PI/180.0))
+//     let top = mainCircleTopOffset + (distance * Math.cos(angle * Math.PI/180.0))
+//     element.style.top = `${top}px`;
+//     element.style.left = `${left}px`;
+// }
 
 /***/ }),
 

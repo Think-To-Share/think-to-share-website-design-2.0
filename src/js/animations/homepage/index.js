@@ -45,7 +45,7 @@ if(document.querySelector('body.homepage') !== null) {
     const serviceSectionTl = gsap.timeline({
         scrollTrigger: {
             trigger: ".homepage .service-section",
-            start: "bottom bottom",
+            start: 'middle',
             markers: false,
         }
     })
@@ -53,6 +53,7 @@ if(document.querySelector('body.homepage') !== null) {
     serviceSectionTl.from('.homepage .services-section .services .service', {
         y: "500px",
         stagger: 0.2,
+        autoAlpha: 0,
         clearProps: "y"
     })
 

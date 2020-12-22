@@ -6,31 +6,36 @@ gsap.registerPlugin(ScrollTrigger);
 const projectSectionTl = gsap.timeline({
     scrollTrigger: {
         trigger: ".homepage .projects-section",
-        start: 'top top',
         scrub: 1,
         pin: true,
         end: "+=" + ( document.querySelector('.homepage .projects-section').offsetWidth),
         snap: {
             snapTo: "labels",
-            duration: {min: 0.5, max: 1},
-            delay: 0.5,
+            duration: {min: 0.2, max: 3},
+            delay: 0,
             ease: "power1.inOut"
         },
-        onUpdate: fixActiveColor,
-        onRefresh: fixActiveColor,
+        onUpdate: animationUpdate,
+        onRefresh: animationUpdate,
     }
 })
 
-projectSectionTl.addLabel('1st')
-projectSectionTl.to(".homepage .projects-section .section-main", {
-    x: "-70%", 
-    duration: 1,
-}).addLabel('2nd')
+// Dynamic Animation
+const slides = document.querySelectorAll('.homepage .projects-section .section-main .slide')
+projectSectionTl.addLabel(`label-start`)
+slides.forEach((slide, index) => {
+    if (slides.length == index + 1) {
+        return;
+    }
 
-projectSectionTl.to(".homepage .projects-section .section-main", {
-    x: "-150%", 
-    duration: 1,
-}).addLabel('3rd')
+    let x_move = (80 * (index + 1)) - 10
+
+    projectSectionTl.addLabel(`label-${index + 1}`)
+    projectSectionTl.to('.homepage .projects-section .section-main', {
+        x: `-${x_move}%`,
+        duration: 1,
+    }).addLabel(`label-${index + 1}`)
+})
 
 document.querySelectorAll(".homepage .projects-section .section-main .slide svg text").forEach(text => {
     text.addEventListener('mouseenter', e => {
@@ -44,22 +49,29 @@ document.querySelectorAll(".homepage .projects-section .section-main .slide svg 
     })
 })
 
-function fixActiveColor(self) {
-    if(self.progress >= 0 && self.progress < 0.4) {
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(2) svg text").style.fill = "rgba(255, 255, 255, 0.3)"
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(3) svg text").style.fill = "rgba(255, 255, 255, 0.3)"
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(1) svg text").style.fill = "#fd8733"
-    }
+function animationUpdate(self) {
+    const animation_count = slides.length - 1;
+    const step = (1 / animation_count) - 0.01;
 
-    if(self.progress >= 0.4 && self.progress < 0.9) {
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(1) svg text").style.fill = "rgba(255, 255, 255, 0.3)"
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(3) svg text").style.fill = "rgba(255, 255, 255, 0.3)"
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(2) svg text").style.fill = "#fd8733"
-    }
+    for (let i = 0; i < 1; i += step) {
+        if (self.progress >= i && self.progress < i + step) {
+            const active_index = Math.ceil(i * animation_count);
 
-    if(self.progress >= 0.9 && self.progress == 1) {
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(1) svg text").style.fill = "rgba(255, 255, 255, 0.3)"
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(2) svg text").style.fill = "rgba(255, 255, 255, 0.3)"
-        document.querySelector(".homepage .projects-section .section-main .slide:nth-child(3) svg text").style.fill = "#fd8733"
+            slides.forEach((slide, slide_index) => {
+                if (active_index == slide_index) {
+                    slide.querySelector('svg text').style.fill = "#fd8733"
+                }else {
+                    slide.querySelector('svg text').style.fill = "rgba(255, 255, 255, 0.3)"
+                }
+            })
+
+            document.querySelectorAll('.homepage .projects-section .section-bkg .bkg').forEach((bkg, bkg_index) => {
+                if (active_index == bkg_index) {
+                    bkg.style.display = "block"
+                }else {
+                    bkg.style.display = "none"
+                }
+            })
+        }
     }
 }
