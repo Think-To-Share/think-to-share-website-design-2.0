@@ -17003,6 +17003,14 @@ h3 {
   background-image: url(../public/images/web-design-page/hero-section-bkg-e1b8d402c284b26903dfec157aeb867d.jpg);
   background-size: cover;
   background-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .web-design .hero-section .title {
   font-family: "Poppins", sans-serif;
@@ -17024,6 +17032,55 @@ h3 {
   text-align: center;
   text-transform: uppercase;
   font-size: 1.6em;
+}
+.web-design .about-section {
+  background-image: url(../public/images/web-design-page/about-section-bkg-e2f9d6f66e3e57e9ac7b1a95cfa1879e.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.web-design .about-section .title-section {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 45px;
+}
+.web-design .about-section .title-section .title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 3em;
+}
+.web-design .about-section .title-section .small-title {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  color: #c5c5c5;
+}
+.web-design .about-section .section-main .item {
+  color: #fff;
+  text-align: center;
+}
+.web-design .about-section .section-main .item .icon {
+  margin-bottom: 20px;
+}
+.web-design .about-section .section-main .item h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.8em;
+}
+.web-design .about-section .section-main .item h3 span {
+  color: #fd8733;
+}
+.web-design .about-section .section-main .item .text {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  color: #c5c5c5;
 }
 
 /*# sourceMappingURL=app.css.map*/

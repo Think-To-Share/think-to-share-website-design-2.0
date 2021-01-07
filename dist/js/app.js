@@ -336,6 +336,40 @@ __webpack_require__(/*! ./web-design */ "./src/js/animations/web-design/index.js
 
 /***/ }),
 
+/***/ "./src/js/animations/web-design/_about_page.js":
+/*!*****************************************************!*
+  !*** ./src/js/animations/web-design/_about_page.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+var section_name = '.web-design .about-section';
+var section = document.querySelector(section_name);
+var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+  scrollTrigger: {
+    trigger: section
+  }
+});
+tl.from("".concat(section_name, " .title-section .title"), {
+  y: 50,
+  autoAlpha: 0,
+  duration: 1.2
+});
+tl.from("".concat(section_name, " .title-section .small-title"), {
+  scale: 0,
+  autoAlpha: 0,
+  duration: 2,
+  ease: "back.out(1.7)"
+});
+
+/***/ }),
+
 /***/ "./src/js/animations/web-design/_hero_section.js":
 /*!*******************************************************!*
   !*** ./src/js/animations/web-design/_hero_section.js ***!
@@ -380,6 +414,8 @@ tl.from("".concat(section_name, " .small-title"), {
 
 if (document.querySelector('body.web-design') !== null) {
   __webpack_require__(/*! ./_hero_section */ "./src/js/animations/web-design/_hero_section.js");
+
+  __webpack_require__(/*! ./_about_page */ "./src/js/animations/web-design/_about_page.js");
 }
 
 /***/ }),
