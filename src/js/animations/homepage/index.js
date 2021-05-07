@@ -11,6 +11,7 @@ if(document.querySelector('body.homepage') !== null) {
         scrollTrigger: {
             trigger: ".homepage .hero-section",
             markers: false,
+            pin: true,
         }
     })
 

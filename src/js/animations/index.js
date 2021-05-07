@@ -1,2 +1,3 @@
-require('./homepage');
-require('./web-design');
+import './homepage';
+import './web-design';
+import './homepage2';

@@ -5,3 +5,10 @@
     max-width: 100%;
     overflow: hidden;
 }
+
+.scroll-container {
+    height: 100vh;
+    position: relative;
+    top: 0;
+    background-color: #fff;
+}
