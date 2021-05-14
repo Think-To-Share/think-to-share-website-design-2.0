@@ -2,7 +2,7 @@
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/animations/homepage2/hero-section.js":
-/*!*****************************************************!*
+/*!*****************************************************!*\
   !*** ./src/js/animations/homepage2/hero-section.js ***!
   \*****************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -82,7 +82,7 @@ tl.from('.hero-section .section-main .heading-container div', {
 /***/ }),
 
 /***/ "./src/js/animations/homepage2/index.js":
-/*!**********************************************!*
+/*!**********************************************!*\
   !*** ./src/js/animations/homepage2/index.js ***!
   \**********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./src/js/animations/homepage2/services-section.js":
-/*!*********************************************************!*
+/*!*********************************************************!*\
   !*** ./src/js/animations/homepage2/services-section.js ***!
   \*********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -170,7 +170,7 @@ function textActiveAnimation(element) {
 /***/ }),
 
 /***/ "./src/js/animations/homepage/_category_section.js":
-/*!*********************************************************!*
+/*!*********************************************************!*\
   !*** ./src/js/animations/homepage/_category_section.js ***!
   \*********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -199,7 +199,7 @@ categorySectionTl.from('.homepage .category-section .categories .category', {
 /***/ }),
 
 /***/ "./src/js/animations/homepage/_management_section.js":
-/*!***********************************************************!*
+/*!***********************************************************!*\
   !*** ./src/js/animations/homepage/_management_section.js ***!
   \***********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -230,7 +230,7 @@ tl.from('.homepage .our-management-section .section-main .person .description', 
 /***/ }),
 
 /***/ "./src/js/animations/homepage/_project_section.js":
-/*!********************************************************!*
+/*!********************************************************!*\
   !*** ./src/js/animations/homepage/_project_section.js ***!
   \********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -317,7 +317,7 @@ function animationUpdate(self) {
 /***/ }),
 
 /***/ "./src/js/animations/homepage/_why_choose_section.js":
-/*!***********************************************************!*
+/*!***********************************************************!*\
   !*** ./src/js/animations/homepage/_why_choose_section.js ***!
   \***********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -389,7 +389,7 @@ whyChooseSectionTl.from('.homepage .why-choose-section .buttons a', {
 /***/ }),
 
 /***/ "./src/js/animations/homepage/index.js":
-/*!*********************************************!*
+/*!*********************************************!*\
   !*** ./src/js/animations/homepage/index.js ***!
   \*********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -494,7 +494,7 @@ function goToSection(section, anim) {
 /***/ }),
 
 /***/ "./src/js/animations/index.js":
-/*!************************************!*
+/*!************************************!*\
   !*** ./src/js/animations/index.js ***!
   \************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -512,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./src/js/animations/web-design/_about_page.js":
-/*!*****************************************************!*
+/*!*****************************************************!*\
   !*** ./src/js/animations/web-design/_about_page.js ***!
   \*****************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -546,7 +546,7 @@ tl.from("".concat(section_name, " .title-section .small-title"), {
 /***/ }),
 
 /***/ "./src/js/animations/web-design/_hero_section.js":
-/*!*******************************************************!*
+/*!*******************************************************!*\
   !*** ./src/js/animations/web-design/_hero_section.js ***!
   \*******************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -582,7 +582,7 @@ tl.from("".concat(section_name, " .small-title"), {
 /***/ }),
 
 /***/ "./src/js/animations/web-design/index.js":
-/*!***********************************************!*
+/*!***********************************************!*\
   !*** ./src/js/animations/web-design/index.js ***!
   \***********************************************/
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
@@ -595,38 +595,8 @@ if (document.querySelector('body.web-design') !== null) {
 
 /***/ }),
 
-/***/ "./src/js/app.js":
-/*!***********************!*
-  !*** ./src/js/app.js ***!
-  \***********************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/app.scss */ "./src/scss/app.scss");
-/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
-
-
-var scrollContainer = document.querySelector('.scroll-container');
-
-if (scrollContainer) {
-  var ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__.default(scrollContainer, {
-    suppressScrollX: true,
-    wheelSpeed: 1
-  });
-  window.addEventListener('resize', function () {
-    ps.update();
-  });
-}
-
-__webpack_require__(/*! ./animations */ "./src/js/animations/index.js");
-
-__webpack_require__(/*! ./homepage */ "./src/js/homepage.js");
-
-/***/ }),
-
 /***/ "./src/js/homepage.js":
-/*!****************************!*
+/*!****************************!*\
   !*** ./src/js/homepage.js ***!
   \****************************/
 /***/ (function() {
@@ -651,7 +621,7 @@ __webpack_require__(/*! ./homepage */ "./src/js/homepage.js");
 /***/ }),
 
 /***/ "./node_modules/gsap/CSSPlugin.js":
-/*!****************************************!*
+/*!****************************************!*\
   !*** ./node_modules/gsap/CSSPlugin.js ***!
   \****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -2085,7 +2055,7 @@ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(CSSPlugin);
 /***/ }),
 
 /***/ "./node_modules/gsap/CSSRulePlugin.js":
-/*!********************************************!*
+/*!********************************************!*\
   !*** ./node_modules/gsap/CSSRulePlugin.js ***!
   \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -2234,7 +2204,7 @@ _getGSAP() && gsap.registerPlugin(CSSRulePlugin);
 /***/ }),
 
 /***/ "./node_modules/gsap/ScrollToPlugin.js":
-/*!*********************************************!*
+/*!*********************************************!*\
   !*** ./node_modules/gsap/ScrollToPlugin.js ***!
   \*********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -2491,7 +2461,7 @@ _getGSAP() && gsap.registerPlugin(ScrollToPlugin);
 /***/ }),
 
 /***/ "./node_modules/gsap/ScrollTrigger.js":
-/*!********************************************!*
+/*!********************************************!*\
   !*** ./node_modules/gsap/ScrollTrigger.js ***!
   \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -4190,7 +4160,7 @@ _getGSAP() && gsap.registerPlugin(ScrollTrigger);
 /***/ }),
 
 /***/ "./node_modules/gsap/gsap-core.js":
-/*!****************************************!*
+/*!****************************************!*\
   !*** ./node_modules/gsap/gsap-core.js ***!
   \****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -8104,7 +8074,7 @@ var Power0 = _easeMap.Power0,
 /***/ }),
 
 /***/ "./node_modules/gsap/index.js":
-/*!************************************!*
+/*!************************************!*\
   !*** ./node_modules/gsap/index.js ***!
   \************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -8150,7 +8120,7 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 /***/ }),
 
 /***/ "./src/scss/app.scss":
-/*!***************************!*
+/*!***************************!*\
   !*** ./src/scss/app.scss ***!
   \***************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -8163,7 +8133,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js":
-/*!**********************************************************************!*
+/*!**********************************************************************!*\
   !*** ./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js ***!
   \**********************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -9523,8 +9493,9 @@ PerfectScrollbar.prototype.removePsClasses = function removePsClasses () {
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -9582,10 +9553,34 @@ PerfectScrollbar.prototype.removePsClasses = function removePsClasses () {
 /******/ 	}();
 /******/ 	
 /************************************************************************/
-/******/ 	// startup
-/******/ 	// Load entry module
-/******/ 	__webpack_require__("./src/js/app.js");
-/******/ 	// This entry module used 'exports' so it can't be inlined
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+!function() {
+"use strict";
+/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/app.scss */ "./src/scss/app.scss");
+/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
+
+
+var scrollContainer = document.querySelector('.scroll-container');
+
+if (scrollContainer) {
+  var ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__.default(scrollContainer, {
+    suppressScrollX: true,
+    wheelSpeed: 1
+  });
+  window.addEventListener('resize', function () {
+    ps.update();
+  });
+}
+
+__webpack_require__(/*! ./animations */ "./src/js/animations/index.js");
+
+__webpack_require__(/*! ./homepage */ "./src/js/homepage.js");
+}();
 /******/ })()
 ;
 //# sourceMappingURL=app.js.map
