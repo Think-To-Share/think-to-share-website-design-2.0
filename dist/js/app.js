@@ -91,6 +91,8 @@ tl.from('.hero-section .section-main .heading-container div', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hero_section__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero-section */ "./src/js/animations/homepage2/hero-section.js");
 /* harmony import */ var _services_section__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services-section */ "./src/js/animations/homepage2/services-section.js");
+/* harmony import */ var _why_choose_us__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./why-choose-us */ "./src/js/animations/homepage2/why-choose-us.js");
+
 
 
 
@@ -123,31 +125,25 @@ var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.default.timeline({
     scrub: 3,
     snap: 1 / (services.length - 1),
     pinType: "fixed",
-    // base vertical scrolling on how wide the container is so it feels more natural.
     end: function end() {
       return "+=" + section.querySelector('.front-layer').offsetWidth * 4;
     },
-    onSnapComplete: function onSnapComplete(_ref) {// const activeIndex = progress * (services.length - 1)
-      // const activeService = services[activeIndex]
-      // textActiveAnimation(activeService.querySelector('.text-container h3'))
-
+    onUpdate: function onUpdate(_ref) {
       var progress = _ref.progress;
-    },
-    onUpdate: function onUpdate(_ref2) {
-      var progress = _ref2.progress;
-      // if(progress === 1) {
-      //   const lastIndex = services.length - 1
-      //   setTimeout(() => {
-      //     textActiveAnimation(services[lastIndex].querySelector('.text-container h3'))
-      //   }, 500)
-      // }
       var activeIndex = progress * (services.length - 1);
       var activeService = services[activeIndex];
 
       if (activeService) {
         textActiveAnimation(activeService.querySelector('.text-container h3'));
+      } else {
+        services.forEach(function (service) {
+          service.querySelector('.text-container h3').style.opacity = '0.5';
+        });
       }
-    }
+    } // onLeave: ({}) => {
+    //   gsap.to('.scroll-container', {duration: 1.5, scrollTo: '.why-choose-us'})
+    // }
+
   }
 });
 tl.to(services, {
@@ -166,6 +162,36 @@ function textActiveAnimation(element) {
     alpha: 1
   });
 }
+
+/***/ }),
+
+/***/ "./src/js/animations/homepage2/why-choose-us.js":
+/*!******************************************************!*\
+  !*** ./src/js/animations/homepage2/why-choose-us.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.default.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+var section = document.querySelector('.why-choose-us');
+var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.default.timeline({
+  scrollTrigger: {
+    trigger: section,
+    scroller: '.scroll-container',
+    pin: true,
+    start: 'top top',
+    scrub: 2
+  }
+});
+tl.to(section.querySelector('h2'), {
+  y: 20,
+  alpha: 0
+});
 
 /***/ }),
 

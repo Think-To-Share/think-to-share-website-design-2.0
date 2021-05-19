@@ -17343,6 +17343,9 @@ h3 {
   width: 50%;
   margin-bottom: 80px;
 }
+.homepage-2 .why-choose-us {
+  height: 100vh;
+}
 
 .web-design .hero-section {
   background-image: url(../public/images/web-design-page/hero-section-bkg-e1b8d402c284b26903dfec157aeb867d.jpg);

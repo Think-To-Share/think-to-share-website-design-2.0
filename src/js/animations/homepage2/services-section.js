@@ -18,31 +18,22 @@ const tl = gsap.timeline({
       scrub: 3,
       snap: 1 / (services.length - 1),
       pinType: "fixed",
-      // base vertical scrolling on how wide the container is so it feels more natural.
       end: () => "+=" + section.querySelector('.front-layer').offsetWidth * 4,
-      onSnapComplete: ({progress}) => {
-        // const activeIndex = progress * (services.length - 1)
-        // const activeService = services[activeIndex]
-
-        
-        // textActiveAnimation(activeService.querySelector('.text-container h3'))
-      },
       onUpdate: ({progress}) => {
-        // if(progress === 1) {
-        //   const lastIndex = services.length - 1
-        //   setTimeout(() => {
-        //     textActiveAnimation(services[lastIndex].querySelector('.text-container h3'))
-        //   }, 500)
-        // }
-
         const activeIndex = progress * (services.length - 1)
         const activeService = services[activeIndex]
-
         
         if(activeService) {
           textActiveAnimation(activeService.querySelector('.text-container h3'))
+        }else {
+          services.forEach(service => {
+            service.querySelector('.text-container h3').style.opacity = '0.5'
+          })
         }
-      }
+      },
+      // onLeave: ({}) => {
+      //   gsap.to('.scroll-container', {duration: 1.5, scrollTo: '.why-choose-us'})
+      // }
     }
 });
 

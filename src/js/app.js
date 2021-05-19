@@ -15,5 +15,3 @@ if(scrollContainer) {
 
 require('./animations')
 require('./homepage')
-
-
