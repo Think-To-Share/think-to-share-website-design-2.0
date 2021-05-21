@@ -1,7 +1,20 @@
 import '../scss/app.scss';
+import PerfectScrollbar from 'perfect-scrollbar';
 
-document.body.scrollTop = 0; // For Safari
-document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+const scrollContainer = document.querySelector('.scroll-container');
+if(scrollContainer) {
+    const ps = new PerfectScrollbar(scrollContainer, {
+        suppressScrollX: true,
+        wheelSpeed: 1,
+        wheelPropagation: true,
+        swipeEasing: true,
+    });
+
+    window.addEventListener('resize', () => {
+        ps.update();
+    })
+
+    scrollContainer.scrollTop = 0;
+}
 
 require('./animations')
-require('./homepage')
