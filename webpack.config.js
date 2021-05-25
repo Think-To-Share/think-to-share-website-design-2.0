@@ -4,23 +4,32 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-    entry: './src/js/app.js',
+    entry: './src/scripts/app.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/app.js'
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.ts$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+                loader: 'babel-loader',
             },
+
+            // {
+            //     test: /\.m?js$/,
+            //     exclude: /node_modules/,
+            //     use: {
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: ['@babel/preset-env']
+            //         }
+            //     }
+            // },
 
             {
                 test: /\.(sc|sa|c)ss$/,

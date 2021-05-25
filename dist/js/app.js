@@ -1,54 +1,130 @@
 /******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/animations/homepage/index.js":
-/*!*********************************************!*
-  !*** ./src/js/animations/homepage/index.js ***!
-  \*********************************************/
-/***/ (function() {
-
-
-
-/***/ }),
-
-/***/ "./src/js/animations/index.js":
-/*!************************************!*
-  !*** ./src/js/animations/index.js ***!
-  \************************************/
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
-
-__webpack_require__(/*! ./homepage */ "./src/js/animations/homepage/index.js");
-
-/***/ }),
-
-/***/ "./src/js/app.js":
-/*!***********************!*
-  !*** ./src/js/app.js ***!
-  \***********************/
+/***/ "./src/scripts/animations/homepage/index.ts":
+/*!**************************************************!*
+  !*** ./src/scripts/animations/homepage/index.ts ***!
+  \**************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Homepage": function() { return /* binding */ Homepage; }
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Homepage = /*#__PURE__*/function () {
+  function Homepage() {
+    _classCallCheck(this, Homepage);
+  }
+
+  _createClass(Homepage, [{
+    key: "init",
+    value: function init() {}
+  }, {
+    key: "scrolling",
+    value: function scrolling(customScrollbar) {
+      customScrollbar.addEventListener('ps-scroll-up', function () {
+        console.log('up');
+      });
+      customScrollbar.addEventListener('ps-scroll-down', function () {
+        console.log('down');
+      });
+    }
+  }]);
+
+  return Homepage;
+}();
+
+/***/ }),
+
+/***/ "./src/scripts/animations/index.ts":
+/*!*****************************************!*
+  !*** ./src/scripts/animations/index.ts ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Animation": function() { return /* binding */ Animation; }
+/* harmony export */ });
+/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homepage */ "./src/scripts/animations/homepage/index.ts");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var Animation = /*#__PURE__*/function () {
+  function Animation() {
+    _classCallCheck(this, Animation);
+
+    _defineProperty(this, "currentPageAnimation", void 0);
+
+    var bodyClasses = document.body.classList;
+
+    if (bodyClasses.contains('homepage')) {
+      this.currentPageAnimation = new _homepage__WEBPACK_IMPORTED_MODULE_0__.Homepage();
+    }
+  }
+
+  _createClass(Animation, [{
+    key: "init",
+    value: function init() {
+      this.currentPageAnimation.init();
+    }
+  }, {
+    key: "scrolling",
+    value: function scrolling(customScrollbar) {
+      this.currentPageAnimation.scrolling(customScrollbar);
+    }
+  }]);
+
+  return Animation;
+}();
+
+/***/ }),
+
+/***/ "./src/scripts/app.ts":
+/*!****************************!*
+  !*** ./src/scripts/app.ts ***!
+  \****************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/app.scss */ "./src/scss/app.scss");
 /* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
+/* harmony import */ var _animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animations */ "./src/scripts/animations/index.ts");
+
 
 
 var scrollContainer = document.querySelector('.scroll-container');
 
 if (scrollContainer) {
   var ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__.default(scrollContainer, {
+    minScrollbarLength: 43,
+    maxScrollbarLength: 43,
     suppressScrollX: true,
-    wheelSpeed: 1,
-    wheelPropagation: true,
-    swipeEasing: true
+    wheelSpeed: 1
   });
   window.addEventListener('resize', function () {
     ps.update();
   });
   scrollContainer.scrollTop = 0;
+  var animation = new _animations__WEBPACK_IMPORTED_MODULE_2__.Animation();
+  animation.init;
+  scrollContainer.addEventListener('ps-scroll-y', function () {
+    animation.scrolling(scrollContainer);
+  });
 }
-
-__webpack_require__(/*! ./animations */ "./src/js/animations/index.js");
 
 /***/ }),
 
@@ -58,7 +134,6 @@ __webpack_require__(/*! ./animations */ "./src/js/animations/index.js");
   \***************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -71,7 +146,6 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /*!
  * perfect-scrollbar v1.5.0
@@ -1444,6 +1518,23 @@ PerfectScrollbar.prototype.removePsClasses = function removePsClasses () {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	!function() {
 /******/ 		// define __esModule on exports
@@ -1458,7 +1549,7 @@ PerfectScrollbar.prototype.removePsClasses = function removePsClasses () {
 /************************************************************************/
 /******/ 	// startup
 /******/ 	// Load entry module
-/******/ 	__webpack_require__("./src/js/app.js");
+/******/ 	__webpack_require__("./src/scripts/app.ts");
 /******/ 	// This entry module used 'exports' so it can't be inlined
 /******/ })()
 ;
