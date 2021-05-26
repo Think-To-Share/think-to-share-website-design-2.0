@@ -1,22 +1,16 @@
-import PerfectScrollbar from "perfect-scrollbar";
-import { PageAnimation } from "../interfaces/PageAnimation";
+import { BasePageAnimation } from "../BasePageAnimation";
 
-export class Homepage implements PageAnimation {
+export class Homepage extends BasePageAnimation {
     constructor() {
-        
+        super();
     }
 
     init() {
-
+        this.render()
     }
 
-    scrolling(customScrollbar: Element) {
-        customScrollbar.addEventListener('ps-scroll-up', () => {
-            console.log('up')
-        })
-
-        customScrollbar.addEventListener('ps-scroll-down', () => {
-            console.log('down')
-        })
+    render = () => {
+        console.log(this.scrollDirection);
+        requestAnimationFrame(this.render)
     }
 }

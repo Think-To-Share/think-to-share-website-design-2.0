@@ -2,6 +2,60 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/animations/BasePageAnimation.ts":
+/*!*****************************************************!*
+  !*** ./src/scripts/animations/BasePageAnimation.ts ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BasePageAnimation": function() { return /* binding */ BasePageAnimation; }
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var BasePageAnimation = /*#__PURE__*/function () {
+  function BasePageAnimation() {
+    _classCallCheck(this, BasePageAnimation);
+
+    _defineProperty(this, "scrollDirection", void 0);
+
+    this.scrollDirection = 'down';
+  }
+
+  _createClass(BasePageAnimation, [{
+    key: "init",
+    value: function init() {
+      throw new Error("Method not implemented.");
+    }
+  }, {
+    key: "scrollingUp",
+    value: function scrollingUp() {
+      this.scrollDirection = 'up';
+    }
+  }, {
+    key: "scrollingDown",
+    value: function scrollingDown() {
+      this.scrollDirection = 'down';
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      throw new Error("Method not implemented.");
+    }
+  }]);
+
+  return BasePageAnimation;
+}();
+
+/***/ }),
+
 /***/ "./src/scripts/animations/homepage/index.ts":
 /*!**************************************************!*
   !*** ./src/scripts/animations/homepage/index.ts ***!
@@ -12,34 +66,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Homepage": function() { return /* binding */ Homepage; }
 /* harmony export */ });
+/* harmony import */ var _BasePageAnimation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../BasePageAnimation */ "./src/scripts/animations/BasePageAnimation.ts");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Homepage = /*#__PURE__*/function () {
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
+  _inherits(Homepage, _BasePageAnimation);
+
+  var _super = _createSuper(Homepage);
+
   function Homepage() {
+    var _this;
+
     _classCallCheck(this, Homepage);
+
+    _this = _super.call(this);
+
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      console.log(_this.scrollDirection);
+      requestAnimationFrame(_this.render);
+    });
+
+    return _this;
   }
 
   _createClass(Homepage, [{
     key: "init",
-    value: function init() {}
-  }, {
-    key: "scrolling",
-    value: function scrolling(customScrollbar) {
-      customScrollbar.addEventListener('ps-scroll-up', function () {
-        console.log('up');
-      });
-      customScrollbar.addEventListener('ps-scroll-down', function () {
-        console.log('down');
-      });
+    value: function init() {
+      this.render();
     }
   }]);
 
   return Homepage;
-}();
+}(_BasePageAnimation__WEBPACK_IMPORTED_MODULE_0__.BasePageAnimation);
 
 /***/ }),
 
@@ -64,11 +145,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var Animation = /*#__PURE__*/function () {
-  function Animation() {
+  function Animation(customScrollbar) {
     _classCallCheck(this, Animation);
 
     _defineProperty(this, "currentPageAnimation", void 0);
 
+    _defineProperty(this, "customScrollbar", void 0);
+
+    this.customScrollbar = customScrollbar;
     var bodyClasses = document.body.classList;
 
     if (bodyClasses.contains('homepage')) {
@@ -80,11 +164,22 @@ var Animation = /*#__PURE__*/function () {
     key: "init",
     value: function init() {
       this.currentPageAnimation.init();
+      this.registerScrollEvent();
     }
   }, {
-    key: "scrolling",
-    value: function scrolling(customScrollbar) {
-      this.currentPageAnimation.scrolling(customScrollbar);
+    key: "registerScrollEvent",
+    value: function registerScrollEvent() {
+      var _this = this;
+
+      this.customScrollbar.addEventListener('ps-scroll-y', function () {
+        _this.customScrollbar.addEventListener('ps-scroll-up', function () {
+          _this.currentPageAnimation.scrollingUp();
+        });
+
+        _this.customScrollbar.addEventListener('ps-scroll-down', function () {
+          _this.currentPageAnimation.scrollingDown();
+        });
+      });
     }
   }]);
 
@@ -118,12 +213,9 @@ if (scrollContainer) {
   window.addEventListener('resize', function () {
     ps.update();
   });
-  scrollContainer.scrollTop = 0;
-  var animation = new _animations__WEBPACK_IMPORTED_MODULE_2__.Animation();
-  animation.init;
-  scrollContainer.addEventListener('ps-scroll-y', function () {
-    animation.scrolling(scrollContainer);
-  });
+  scrollContainer.scrollTo(0, 0);
+  var animation = new _animations__WEBPACK_IMPORTED_MODULE_2__.Animation(scrollContainer);
+  animation.init();
 }
 
 /***/ }),

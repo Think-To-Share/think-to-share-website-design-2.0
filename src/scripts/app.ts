@@ -15,12 +15,8 @@ if(scrollContainer) {
         ps.update();
     })
 
-    scrollContainer.scrollTop = 0;
+    scrollContainer.scrollTo(0, 0);
 
-    const animation = new Animation
-    animation.init
-
-    scrollContainer.addEventListener('ps-scroll-y', () => {
-        animation.scrolling(scrollContainer)
-    })
+    const animation = new Animation(scrollContainer);
+    animation.init()
 }
