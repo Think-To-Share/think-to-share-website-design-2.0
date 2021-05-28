@@ -105,7 +105,7 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
     _this = _super.call(this);
 
     _defineProperty(_assertThisInitialized(_this), "render", function () {
-      console.log(_this.scrollDirection);
+      // console.log(this.scrollDirection);
       requestAnimationFrame(_this.render);
     });
 
@@ -115,7 +115,9 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
   _createClass(Homepage, [{
     key: "init",
     value: function init() {
-      this.render();
+      this.render(); // gsap.ticker.add(() => {
+      //     console.log('hii')
+      // })
     }
   }]);
 
