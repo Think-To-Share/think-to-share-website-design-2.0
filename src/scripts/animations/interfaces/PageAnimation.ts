@@ -1,7 +1,9 @@
 export interface PageAnimation {
-    scrollDirection: "up"|"down" 
+    scrollDirection: "up"|"down"
+
+    customScrollbar: Element
     
-    init(): void;
+    init(customScrollbar: Element): void;
 
     scrollingUp(): void;
 

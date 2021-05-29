@@ -3,11 +3,13 @@ import { PageAnimation } from "./interfaces/PageAnimation";
 export class BasePageAnimation implements PageAnimation {
     scrollDirection: "up" | "down";
 
+    customScrollbar: Element;
+
     constructor() {
         this.scrollDirection = 'down';
     }
 
-    init(): void {
+    init(customScrollbar: Element): void {
         throw new Error("Method not implemented.");
     }
 

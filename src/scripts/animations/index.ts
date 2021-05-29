@@ -15,7 +15,7 @@ export class Animation {
     }
 
     public init() {
-        this.currentPageAnimation.init()
+        this.currentPageAnimation.init(this.customScrollbar)
         this.registerScrollEvent()
     }
 
