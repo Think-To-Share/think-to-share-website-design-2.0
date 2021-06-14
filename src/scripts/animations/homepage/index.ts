@@ -1,6 +1,9 @@
 import { BasePageAnimation } from "../BasePageAnimation";
 import { gsap } from 'gsap'
 import { ScrollTrackData } from "../interfaces/ScrollTrackData";
+import HeroAnimation from './hero'
+import ServicesAnimation from './services'
+import WhyChooseUsAnimation from './whyChooseUs'
 
 export class Homepage extends BasePageAnimation {
     private scroll = {
@@ -16,12 +19,25 @@ export class Homepage extends BasePageAnimation {
     }
 
     private sectionDurations: {[key: string]: number} = {
-        hero: 3,
+        offset: 0.5,
+        hero: 4,
         services: 5,
-        whyChooseUs: 8,
+        whyChooseUs: 8
     }
 
-    private scrollTracks = document.querySelectorAll<HTMLElement>('.scroll-track')
+    private timelines: {[key:string]: gsap.core.Timeline} = {
+        hero: HeroAnimation,
+        services: ServicesAnimation,
+        whyChooseUs: WhyChooseUsAnimation
+    }
+
+    private progress: {[key:string]: number} = {
+        hero: 0,
+        services: 0,
+        whyChooseUs: 0
+    }
+
+    private scrollTracks = document.querySelectorAll<HTMLElement>('.scroll-track[data-timeline]')
 
     private scrollTracksData: ScrollTrackData[] = [];
 
@@ -33,11 +49,7 @@ export class Homepage extends BasePageAnimation {
         this.setScrollHeight()
         this.render()
 
-        // gsap.ticker.add(() => {
-        //     console.log('hii')
-        // })
-
-        console.log(this.scrollTracksData)
+        gsap.ticker.add(this.updateTimelines)
     }
 
     render = () => {
@@ -114,6 +126,12 @@ export class Homepage extends BasePageAnimation {
 
     private updateProgress(element: HTMLElement) {
         const progress = Math.min(Math.max((this.scroll.current - element.offsetTop + this.windowInfo.height) / element.offsetHeight, 0), 1)
-        // console.log(progress)
+        this.progress[element.dataset.timeline] = progress
+    }
+
+    private updateTimelines = () => {
+        Object.keys(this.progress).forEach(key => {
+            this.timelines[key].progress(this.progress[key])
+        })
     }
 }
