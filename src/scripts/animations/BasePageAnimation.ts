@@ -1,12 +1,12 @@
 import { PageAnimation } from "./interfaces/PageAnimation";
 
 export class BasePageAnimation implements PageAnimation {
-    scrollDirection: "up" | "down";
+    scrollForward: boolean;
 
     customScrollbar: Element;
 
     constructor() {
-        this.scrollDirection = 'down';
+        this.scrollForward = true;
     }
 
     init(customScrollbar: Element): void {
@@ -14,11 +14,11 @@ export class BasePageAnimation implements PageAnimation {
     }
 
     scrollingUp(): void {
-        this.scrollDirection = 'up'
+        this.scrollForward = false
     }
     
     scrollingDown(): void {
-        this.scrollDirection = 'down'
+        this.scrollForward = true
     }
 
     render(): void {

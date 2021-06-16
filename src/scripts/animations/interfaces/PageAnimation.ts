@@ -1,5 +1,5 @@
 export interface PageAnimation {
-    scrollDirection: "up"|"down"
+    scrollForward: boolean
 
     customScrollbar: Element
     

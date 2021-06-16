@@ -24,11 +24,11 @@ var BasePageAnimation = /*#__PURE__*/function () {
   function BasePageAnimation() {
     _classCallCheck(this, BasePageAnimation);
 
-    _defineProperty(this, "scrollDirection", void 0);
+    _defineProperty(this, "scrollForward", void 0);
 
     _defineProperty(this, "customScrollbar", void 0);
 
-    this.scrollDirection = 'down';
+    this.scrollForward = true;
   }
 
   _createClass(BasePageAnimation, [{
@@ -39,12 +39,12 @@ var BasePageAnimation = /*#__PURE__*/function () {
   }, {
     key: "scrollingUp",
     value: function scrollingUp() {
-      this.scrollDirection = 'up';
+      this.scrollForward = false;
     }
   }, {
     key: "scrollingDown",
     value: function scrollingDown() {
-      this.scrollDirection = 'down';
+      this.scrollForward = true;
     }
   }, {
     key: "render",
@@ -67,11 +67,39 @@ var BasePageAnimation = /*#__PURE__*/function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 
+var mainHeading = document.querySelector('.hero-section .section-main .main-heading');
+var mainHeadingText = mainHeading.textContent;
+var headingTexts = mainHeadingText.split('');
+var headingTextContainer = mainHeading.parentElement.children[2];
+headingTexts.forEach(function (text) {
+  text = text.replace(/ /g, "\xA0");
+  var textDiv = document.createElement('div');
+  var textContent = document.createTextNode(text);
+  textDiv.appendChild(textContent);
+  headingTextContainer.appendChild(textDiv);
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(textDiv, {
+    y: "random(-400, 400)",
+    x: "random(-200, 200)",
+    scale: 4,
+    autoAlpha: 0
+  });
+});
+mainHeading.remove();
 var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
   paused: true
 });
-tl.to('.hero-section h1', {
-  xPercent: 30
+tl.to('.hero-section .broken-main-heading-container div', {
+  x: 0,
+  y: 0,
+  scale: 1,
+  stagger: 1,
+  autoAlpha: 1,
+  duration: 2 * headingTexts.length
+});
+tl.from('.hero-section .sub-heading', {
+  autoAlpha: 0,
+  y: 30,
+  duration: 4
 });
 /* harmony default export */ __webpack_exports__["default"] = (tl);
 
@@ -137,6 +165,8 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
+    _defineProperty(_assertThisInitialized(_this), "activeTimeline", "");
+
     _defineProperty(_assertThisInitialized(_this), "scroll", {
       target: 0,
       current: 0,
@@ -151,7 +181,7 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
 
     _defineProperty(_assertThisInitialized(_this), "sectionDurations", {
       offset: 0.5,
-      hero: 4,
+      hero: 3,
       services: 5,
       whyChooseUs: 8
     });
@@ -181,6 +211,8 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
       }
 
       _this.transformSections();
+
+      _this.updateOtherSection();
 
       requestAnimationFrame(_this.render);
     });
@@ -270,8 +302,30 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
           element.style.transform = transform;
 
           _this5.updateProgress(element);
+
+          _this5.activeTimeline = element.dataset.timeline;
         }
       });
+    }
+  }, {
+    key: "updateOtherSection",
+    value: function updateOtherSection() {
+      var _this6 = this;
+
+      if (this.activeTimeline && this.progress[this.activeTimeline] > .5) {
+        var activeProgressindex = Object.keys(this.progress).indexOf(this.activeTimeline);
+        Object.keys(this.progress).forEach(function (progressKey, index) {
+          if (index < activeProgressindex) {
+            _this6.progress[progressKey] = 1;
+            console.log(activeProgressindex, '1');
+          }
+
+          if (index > activeProgressindex) {
+            _this6.progress[progressKey] = 0;
+            console.log(activeProgressindex, '0');
+          }
+        });
+      }
     }
   }, {
     key: "isVisible",

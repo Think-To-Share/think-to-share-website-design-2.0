@@ -6,6 +6,8 @@ import ServicesAnimation from './services'
 import WhyChooseUsAnimation from './whyChooseUs'
 
 export class Homepage extends BasePageAnimation {
+    activeTimeline = "";
+
     private scroll = {
         target: 0,
         current: 0,
@@ -20,7 +22,7 @@ export class Homepage extends BasePageAnimation {
 
     private sectionDurations: {[key: string]: number} = {
         offset: 0.5,
-        hero: 4,
+        hero: 3,
         services: 5,
         whyChooseUs: 8
     }
@@ -60,6 +62,7 @@ export class Homepage extends BasePageAnimation {
         }
 
         this.transformSections()
+        this.updateOtherSection()
 
         requestAnimationFrame(this.render)
     }
@@ -112,8 +115,27 @@ export class Homepage extends BasePageAnimation {
             if(this.isVisible(position)) {
                 element.style.transform = transform
                 this.updateProgress(element)
+                this.activeTimeline = element.dataset.timeline
             }
         })
+    }
+
+    private updateOtherSection() {
+        if(this.activeTimeline && this.progress[this.activeTimeline] > .5) {
+            const activeProgressindex = Object.keys(this.progress).indexOf(this.activeTimeline)
+
+            Object.keys(this.progress).forEach((progressKey, index) => {
+                if(index < activeProgressindex) {
+                    this.progress[progressKey] = 1
+                    console.log(activeProgressindex, '1')
+                }
+
+                if(index > activeProgressindex) {
+                    this.progress[progressKey] = 0
+                    console.log(activeProgressindex, '0')
+                }
+            })
+        }
     }
 
     private isVisible(trackPostion: {top: number, bottom: number}) {

@@ -17211,13 +17211,64 @@ textarea.form-control-lg {
 }
 
 .full-section {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   max-width: 100%;
   overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.hero-section .section-main {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.hero-section .section-main .heading-container .main-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 4.5em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.hero-section .section-main .heading-container .sub-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2em;
+  line-height: 1;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+.hero-section .section-main .heading-container .broken-main-heading-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 4.5em;
+  position: relative;
+  z-index: 2;
 }
 
 /*# sourceMappingURL=app.css.map*/
