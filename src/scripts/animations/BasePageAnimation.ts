@@ -1,6 +1,4 @@
-import { PageAnimation } from "./interfaces/PageAnimation";
-
-export class BasePageAnimation implements PageAnimation {
+export abstract class BasePageAnimation {
     scrollForward: boolean;
 
     customScrollbar: Element;
@@ -9,20 +7,12 @@ export class BasePageAnimation implements PageAnimation {
         this.scrollForward = true;
     }
 
-    init(customScrollbar: Element): void {
-        throw new Error("Method not implemented.");
-    }
-
     scrollingUp(): void {
         this.scrollForward = false
     }
     
     scrollingDown(): void {
         this.scrollForward = true
-    }
-
-    render(): void {
-        throw new Error("Method not implemented.");
     }
     
 }

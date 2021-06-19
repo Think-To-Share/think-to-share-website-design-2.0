@@ -4,8 +4,9 @@ import { ScrollTrackData } from "../interfaces/ScrollTrackData";
 import HeroAnimation from './hero'
 import ServicesAnimation from './services'
 import WhyChooseUsAnimation from './whyChooseUs'
+import { PageAnimation } from "../interfaces/PageAnimation";
 
-export class Homepage extends BasePageAnimation {
+export class Homepage extends BasePageAnimation implements PageAnimation {
     activeTimeline = "";
 
     private scroll = {
@@ -22,14 +23,14 @@ export class Homepage extends BasePageAnimation {
 
     private sectionDurations: {[key: string]: number} = {
         offset: 0.5,
-        hero: 3,
-        services: 5,
+        hero: 6,
+        services: 4,
         whyChooseUs: 8
     }
 
     private timelines: {[key:string]: gsap.core.Timeline} = {
-        hero: HeroAnimation,
-        services: ServicesAnimation,
+        hero: new HeroAnimation(this).init(),
+        services: new ServicesAnimation(this).init(),
         whyChooseUs: WhyChooseUsAnimation
     }
 

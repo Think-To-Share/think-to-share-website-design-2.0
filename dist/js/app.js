@@ -32,11 +32,6 @@ var BasePageAnimation = /*#__PURE__*/function () {
   }
 
   _createClass(BasePageAnimation, [{
-    key: "init",
-    value: function init(customScrollbar) {
-      throw new Error("Method not implemented.");
-    }
-  }, {
     key: "scrollingUp",
     value: function scrollingUp() {
       this.scrollForward = false;
@@ -45,11 +40,6 @@ var BasePageAnimation = /*#__PURE__*/function () {
     key: "scrollingDown",
     value: function scrollingDown() {
       this.scrollForward = true;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      throw new Error("Method not implemented.");
     }
   }]);
 
@@ -65,43 +55,79 @@ var BasePageAnimation = /*#__PURE__*/function () {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ HeroAimation; }
+/* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var mainHeading = document.querySelector('.hero-section .section-main .main-heading');
-var mainHeadingText = mainHeading.textContent;
-var headingTexts = mainHeadingText.split('');
-var headingTextContainer = mainHeading.parentElement.children[2];
-headingTexts.forEach(function (text) {
-  text = text.replace(/ /g, "\xA0");
-  var textDiv = document.createElement('div');
-  var textContent = document.createTextNode(text);
-  textDiv.appendChild(textContent);
-  headingTextContainer.appendChild(textDiv);
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(textDiv, {
-    y: "random(-400, 400)",
-    x: "random(-200, 200)",
-    scale: 4,
-    autoAlpha: 0
-  });
-});
-mainHeading.remove();
-var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
-  paused: true
-});
-tl.to('.hero-section .broken-main-heading-container div', {
-  x: 0,
-  y: 0,
-  scale: 1,
-  stagger: 1,
-  autoAlpha: 1,
-  duration: 2 * headingTexts.length
-});
-tl.from('.hero-section .sub-heading', {
-  autoAlpha: 0,
-  y: 30,
-  duration: 4
-});
-/* harmony default export */ __webpack_exports__["default"] = (tl);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var HeroAimation = /*#__PURE__*/function () {
+  function HeroAimation(animation) {
+    _classCallCheck(this, HeroAimation);
+
+    _defineProperty(this, "animation", void 0);
+
+    this.animation = animation;
+  }
+
+  _createClass(HeroAimation, [{
+    key: "init",
+    value: function init() {
+      var mainHeading = document.querySelector('.hero-section .section-main .main-heading');
+      var mainHeadingText = mainHeading.textContent;
+      var headingTexts = mainHeadingText.split('');
+      var headingTextContainer = mainHeading.parentElement.children[2];
+      headingTexts.forEach(function (text) {
+        text = text.replace(/ /g, "\xA0");
+        var textDiv = document.createElement('div');
+        var textContent = document.createTextNode(text);
+        textDiv.appendChild(textContent);
+        headingTextContainer.appendChild(textDiv);
+        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(textDiv, {
+          y: "random(-400, 400)",
+          x: "random(-200, 200)",
+          scale: 4,
+          autoAlpha: 0
+        });
+      });
+      mainHeading.remove();
+      var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+        paused: true
+      });
+      tl.to('.hero-section .broken-main-heading-container div', {
+        x: 0,
+        y: 0,
+        scale: 1,
+        stagger: 1,
+        autoAlpha: 1,
+        duration: 0.5 * headingTexts.length
+      });
+      tl.from('.hero-section .sub-heading', {
+        autoAlpha: 0,
+        y: 30,
+        duration: 4
+      });
+      tl.to('.hero-section', {
+        yPercent: -100,
+        duration: 4
+      }, "+=1");
+      return tl;
+    }
+  }]);
+
+  return HeroAimation;
+}();
+
+
+;
 
 /***/ }),
 
@@ -181,14 +207,14 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
 
     _defineProperty(_assertThisInitialized(_this), "sectionDurations", {
       offset: 0.5,
-      hero: 3,
-      services: 5,
+      hero: 6,
+      services: 4,
       whyChooseUs: 8
     });
 
     _defineProperty(_assertThisInitialized(_this), "timelines", {
-      hero: _hero__WEBPACK_IMPORTED_MODULE_1__.default,
-      services: _services__WEBPACK_IMPORTED_MODULE_2__.default,
+      hero: new _hero__WEBPACK_IMPORTED_MODULE_1__.default(_assertThisInitialized(_this)).init(),
+      services: new _services__WEBPACK_IMPORTED_MODULE_2__.default(_assertThisInitialized(_this)).init(),
       whyChooseUs: _whyChooseUs__WEBPACK_IMPORTED_MODULE_3__.default
     });
 
@@ -358,12 +384,66 @@ var Homepage = /*#__PURE__*/function (_BasePageAnimation) {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ ServicesAnimation; }
+/* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
-  paused: true
-});
-/* harmony default export */ __webpack_exports__["default"] = (tl);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var ServicesAnimation = /*#__PURE__*/function () {
+  function ServicesAnimation(animation) {
+    _classCallCheck(this, ServicesAnimation);
+
+    _defineProperty(this, "animation", void 0);
+
+    this.animation = animation;
+  }
+
+  _createClass(ServicesAnimation, [{
+    key: "init",
+    value: function init() {
+      var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+        paused: true
+      });
+      document.querySelectorAll('.services-section .service-heading').forEach(function (heading, key) {
+        if (key === 0) {
+          return;
+        }
+
+        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(heading, {
+          autoAlpha: 0,
+          y: 30
+        });
+        tl.to(heading, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1
+        }, "+=0.2");
+        var previsousEl = heading.previousElementSibling;
+        tl.to(previsousEl, {
+          autoAlpha: 0,
+          y: 30,
+          scale: 0,
+          duration: 0.1
+        }, "-=1");
+      });
+      return tl;
+    }
+  }]);
+
+  return ServicesAnimation;
+}();
+
+
+;
 
 /***/ }),
 
