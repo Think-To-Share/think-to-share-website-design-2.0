@@ -20,13 +20,17 @@ export class Animation {
     }
 
     private registerScrollEvent() {
+        const ev = new CustomEvent('scroll')
+
         this.customScrollbar.addEventListener('ps-scroll-y', () => {
             this.customScrollbar.addEventListener('ps-scroll-up', () => {
                 this.currentPageAnimation.scrollingUp()
+                window.dispatchEvent(ev)
             })
 
             this.customScrollbar.addEventListener('ps-scroll-down', () => {
                 this.currentPageAnimation.scrollingDown()
+                window.dispatchEvent(ev)
             })
         })
     }

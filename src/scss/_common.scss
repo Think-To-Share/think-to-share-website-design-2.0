@@ -3,6 +3,10 @@
     position: relative;
     top: 0;
     background-color: #fff;
+
+    .ps__rail-y {
+        z-index: 9999;
+    }
 }
 
 .scroll-tracks {

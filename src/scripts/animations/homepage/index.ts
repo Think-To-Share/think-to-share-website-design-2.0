@@ -22,9 +22,9 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
     }
 
     private sectionDurations: {[key: string]: number} = {
-        offset: 0.5,
-        hero: 6,
-        services: 4,
+        offset: 1,
+        hero: 4.5,
+        services: 5,
         whyChooseUs: 8
     }
 
@@ -34,7 +34,7 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
         whyChooseUs: WhyChooseUsAnimation
     }
 
-    private progress: {[key:string]: number} = {
+    public progress: {[key:string]: number} = {
         hero: 0,
         services: 0,
         whyChooseUs: 0
@@ -52,6 +52,7 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
         this.setScrollHeight()
         this.render()
 
+        gsap.ticker.lagSmoothing(1000, 16);
         gsap.ticker.add(this.updateTimelines)
     }
 
@@ -128,12 +129,10 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
             Object.keys(this.progress).forEach((progressKey, index) => {
                 if(index < activeProgressindex) {
                     this.progress[progressKey] = 1
-                    console.log(activeProgressindex, '1')
                 }
 
                 if(index > activeProgressindex) {
                     this.progress[progressKey] = 0
-                    console.log(activeProgressindex, '0')
                 }
             })
         }

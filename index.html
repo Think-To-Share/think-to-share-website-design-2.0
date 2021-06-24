@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Heebo:wght@300;400;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Think To Share 2.0</title>
     <link rel="stylesheet" href="./dist/css/app.css">
     <script src="./dist/js/app.js" defer></script>
@@ -12,6 +14,9 @@
     <div class="scroll-container">
         <section class="full-section hero-section">
             <div class="section-main">
+                <video src="./src/videos/cut-19june.mp4" class="bkg-video" muted loop></video>
+                <div class="video-overlay"></div>
+
                 <div class="heading-container">
                     <p class="sub-heading">Lorem Ipsum</p>
                     <h1 class="main-heading">You Think, We Share</h1>
@@ -22,10 +27,56 @@
 
         <section class="full-section services-section">
             <div class="section-main">
-                <h2 class="service-heading">Web Design</h2>
-                <h2 class="service-heading">Digital Marketing</h2>
-                <h2 class="service-heading">Search Engine Optimization</h2>
-                <h2 class="service-heading">Video Creation</h2>
+                <div class="front-layer">
+                    <div class="service">
+                        <div class="text-container">
+                            <h3 data-content="Web Design">Web Design</h3>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <div class="text-container">
+                            <h3 data-content="Search Engine Optimization">Search Engine Optimization</h3>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <div class="text-container">
+                            <h3 data-content="Digital Marketing">Digital Marketing</h3>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <div class="text-container">
+                            <h3 data-content="Content Writing">Content Writing</h3>
+                        </div>
+                        
+                    </div>
+                    <div class="service">
+                        <div class="text-container">
+                            <h3 data-content="Video Editing">Video Editing</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+    
+                <div class="back-layer">
+                    <div class="layer-container">
+                        <div class="left-images images">
+                            <img src="http://placeimg.com/290/390/red" alt="">
+                            <img src="http://placeimg.com/290/390/education" alt="">
+                            <img src="http://placeimg.com/290/390/development" alt="">
+                            <img src="http://placeimg.com/290/390/chill" alt="">
+                            <img src="http://placeimg.com/290/390/green" alt="">
+                            <img src="http://placeimg.com/290/390/day" alt="">
+                        </div>
+                        <div class="right-images images">
+                            <img src="http://placeimg.com/290/390/night" alt="">
+                            <img src="http://placeimg.com/290/390/climb" alt="">
+                            <img src="http://placeimg.com/290/390/seo" alt="">
+                            <img src="http://placeimg.com/290/390/fun" alt="">
+                            <img src="http://placeimg.com/290/390/monster" alt="">
+                            <img src="http://placeimg.com/290/390/child" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="full-section"></section>

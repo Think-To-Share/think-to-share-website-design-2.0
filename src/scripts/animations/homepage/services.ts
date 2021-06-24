@@ -12,30 +12,66 @@ export default class ServicesAnimation {
             paused: true,
         })
 
-        document.querySelectorAll('.services-section .service-heading').forEach((heading, key) => {
-            if(key === 0) {
-                return;
-            }
+        const totalServicesCount = document.querySelectorAll('.services-section .section-main .front-layer .service').length
+        const leftImages = gsap.utils.toArray('.services-section .back-layer .left-images img')
+        const rightImages = gsap.utils.toArray('.services-section .back-layer .right-images img')
 
-            gsap.set(heading, {
-                autoAlpha: 0,
-                y: 30,
+        document.querySelectorAll('.services-section .front-layer h3').forEach(heading => {
+            heading.addEventListener('mouseenter', () => {
+                gsap.to(leftImages, {
+                    filter: 'blur(10px)',
+                    ease: "circ.out"
+                })
+
+                gsap.to(rightImages, {
+                    filter: 'blur(10px)',
+                    ease: "circ.out"
+                })
             })
 
-            tl.to(heading, {
-                autoAlpha: 1,
-                y: 0,
-                duration: 1
-            }, "+=0.2")
+            heading.addEventListener('mouseleave', () => {
+                gsap.to(leftImages, {
+                    filter: 'blur(0px)',
+                    ease: "circ.out"
+                })
 
-            const previsousEl =heading.previousElementSibling
+                gsap.to(rightImages, {
+                    filter: 'blur(0px)',
+                    ease: "circ.out"
+                })
+            })
+        })
 
-            tl.to(previsousEl, {
-                autoAlpha: 0,
-                y: 30,
-                scale: 0,
-                duration: 0.1,
-            }, "-=1")
+        tl.to('.services-section', {
+            duration: 0.07
+        })
+
+        tl.to('.services-section .section-main .front-layer', {
+            xPercent: -((totalServicesCount - 1) * 100),
+            duration: 1,
+            ease: 'none'
+        })
+
+        tl.to(leftImages, {
+            yPercent: -100 * (leftImages.length - 1),
+            duration: 1,
+            ease: 'none',
+        }, '<')
+
+        tl.to(rightImages, {
+            yPercent: 100 * (rightImages.length - 1),
+            duration: 1,
+            ease: 'none'
+        }, '<')
+
+        tl.to('.services-section', {
+            duration: 0.07
+        })
+
+        tl.to('.services-section', {
+            scale: 0,
+            duration: 0.08,
+            ease: "expo.out"
         })
 
         return tl;

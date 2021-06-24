@@ -4,8 +4,11 @@ import { PageAnimation } from "../interfaces/PageAnimation";
 export default class HeroAimation {
     private animation: PageAnimation;
 
+    video = document.querySelector<HTMLMediaElement>('.bkg-video')
+
     constructor(animation: PageAnimation) {
         this.animation = animation
+        this.video.play()
     }
 
     init(): gsap.core.Timeline {
@@ -15,7 +18,7 @@ export default class HeroAimation {
         const headingTextContainer = mainHeading.parentElement.children[2]
 
         headingTexts.forEach(text => {
-            text = text.replace(/ /g, '\u00a0')
+            text = text.replace(/\s/g, '\u00a0')
 
             const textDiv = document.createElement('div')
             const textContent = document.createTextNode(text)
