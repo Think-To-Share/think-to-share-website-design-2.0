@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { PageAnimation } from "../interfaces/PageAnimation";
-export default class ServicesAnimation {
+export default class {
     private animation: PageAnimation;
 
     constructor(animation: PageAnimation) {

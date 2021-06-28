@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { PageAnimation } from "../interfaces/PageAnimation";
 
-export default class HeroAimation {
+export default class {
     private animation: PageAnimation;
 
     video = document.querySelector<HTMLMediaElement>('.bkg-video')
@@ -12,19 +12,10 @@ export default class HeroAimation {
     }
 
     init(): gsap.core.Timeline {
-        const mainHeading = document.querySelector('.hero-section .section-main .main-heading');
-        const mainHeadingText = mainHeading.textContent
-        const headingTexts = mainHeadingText.split('')
-        const headingTextContainer = mainHeading.parentElement.children[2]
+        const headingChars = gsap.utils.toArray('.hero-section .section-main .main-heading .char')
 
-        headingTexts.forEach(text => {
-            text = text.replace(/\s/g, '\u00a0')
-
-            const textDiv = document.createElement('div')
-            const textContent = document.createTextNode(text)
-            textDiv.appendChild(textContent)
-            headingTextContainer.appendChild(textDiv)
-            gsap.set(textDiv, {
+        headingChars.forEach((char:HTMLElement) => {
+            gsap.set(char, {
                 y: "random(-400, 400)",
                 x: "random(-200, 200)",
                 scale: 4,
@@ -32,19 +23,17 @@ export default class HeroAimation {
             })
         })
 
-        mainHeading.remove()
-
         const tl = gsap.timeline({
             paused: true,
         })
 
-        tl.to('.hero-section .broken-main-heading-container div', {
+        tl.to(headingChars, {
             x: 0,
             y: 0,
             scale: 1,
             stagger: 1,
             autoAlpha: 1,
-            duration: 0.5 * headingTexts.length
+            duration: 0.5 * headingChars.length
         })
 
         tl.from('.hero-section .sub-heading', {
