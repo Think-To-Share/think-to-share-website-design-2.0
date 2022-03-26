@@ -1,10 +1,11 @@
 import { BasePageAnimation } from "../BasePageAnimation";
 import { gsap } from 'gsap'
 import { ScrollTrackData } from "../interfaces/ScrollTrackData";
-import HeroAnimation from './hero'
-import ServicesAnimation from './services'
+import { HeroAnimation } from './hero'
+import { ServicesAnimation } from './services'
 import WhyChooseUsAnimation from './whyChooseUs'
-import ProjectsAnimation from './projects'
+import { BlogsAnimation } from "./blogs";
+import { ProjectsAnimation } from './projects'
 import { PageAnimation } from "../interfaces/PageAnimation";
 
 export class Homepage extends BasePageAnimation implements PageAnimation {
@@ -27,19 +28,22 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
         hero: 4.5,
         services: 5,
         project_offset: 0.5,
-        projects: 4
+        projects: 4,
+        blogs: 4,
     }
 
     progress: {[key:string]: number} = {
         hero: 0,
         services: 0,
-        projects: 0
+        projects: 0,
+        blogs: 0,
     }
 
     private timelines: {[key:string]: gsap.core.Timeline} = {
         hero: new HeroAnimation(this).init(),
         services: new ServicesAnimation(this).init(),
-        projects: new ProjectsAnimation(this).init()
+        projects: new ProjectsAnimation(this).init(),
+        blogs: new BlogsAnimation(this).init(),
     }
 
     private scrollTracks = document.querySelectorAll<HTMLElement>('.scroll-track[data-timeline]')

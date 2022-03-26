@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { PageAnimation } from "../interfaces/PageAnimation";
 
-export default class {
+export class HeroAnimation {
     private animation: PageAnimation;
 
     video = document.querySelector<HTMLMediaElement>('.bkg-video')

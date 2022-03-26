@@ -1,72 +1,81 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+const WebpackBar = require('webpackbar');
 
-module.exports = {
-    entry: './src/scripts/app.ts',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'js/app.js'
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-    },
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-            },
+module.exports = (_env, options) => {
+    const isProduction = options.mode !== 'development';
 
-            // {
-            //     test: /\.m?js$/,
-            //     exclude: /node_modules/,
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: ['@babel/preset-env']
-            //         }
-            //     }
-            // },
-
-            {
-                test: /\.(sc|sa|c)ss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'postcss-loader',
-                    'sass-loader',
-                ]
-            },
-
-            {
-                test: /\.(jpe?g|png|webp|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
+    let config = {
+        entry: ['./src/scripts/app.ts', './src/scss/app.scss'],
+        output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'js/app.js',
+            pathinfo: isProduction,
+            clean: true,
+        },
+        resolve: {
+            extensions: ['.tsx', '.ts', '.js'],
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: "swc-loader",
                         options: {
-                            context: path.resolve(__dirname, 'src'),
-                            name: '[path][name]-[hash].[ext]',
-                            publicPath: '../public/',
-                            outputPath: 'public'
+                            jsc: {
+                                parser: {
+                                    syntax: "typescript"
+                                }
+                            }
                         }
                     }
-                ]
-            }
-        ]
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'css/app.css',
-        })
-    ],
-    optimization: {
-        minimizer: [
-            new TerserPlugin(),
-            new CssMinimizerPlugin(),
+                },
+    
+                {
+                    test: /\.(sa|sc|c)ss$/,
+                    include: path.resolve(__dirname, 'src'),
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                publicPath: '../',
+                            }
+                        },
+                        'css-loader',
+                        'postcss-loader',
+                        'sass-loader'
+                    ]
+                },
+    
+                {
+                    test: /\.(jpe?g|png|webp|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                    type: 'asset/resource',
+                    generator: {
+                        filename: 'public/[name]-[hash][ext]'
+                    }
+                }
+            ]
+        },
+        plugins: [
+            new WebpackBar(),
+            new MiniCssExtractPlugin({
+                filename: 'css/app.css'
+            }),
         ],
-    },
-    devtool: 'source-map'
+        optimization: {
+            minimizer: [
+                `...`,
+                new CssMinimizerPlugin(),
+            ],
+        },
+    }
+
+    if(! isProduction) {
+        config['devtool'] = 'source-map'
+    }
+
+    return config;
 }

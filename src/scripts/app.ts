@@ -1,4 +1,3 @@
-import '../scss/app.scss';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Animation } from "./animations";
 import Splitting from "splitting";

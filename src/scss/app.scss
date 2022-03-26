@@ -4,15 +4,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Fontawesome
-@import '~@fortawesome/fontawesome-free/css/all.css';
-
 // Perfect Scrollbar
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
 
 // Splitting
 @import "~splitting/dist/splitting.css";
 @import "~splitting/dist/splitting-cells.css";
+
+// RFS
+@import "rfs/scss";
 
 // Common
 @import './common';

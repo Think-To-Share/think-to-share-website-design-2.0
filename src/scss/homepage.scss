@@ -197,6 +197,8 @@
 }
 
 .projects-section {
+    z-index: 3;
+
     .bkg {
         background: #000;
         width: 100%;
@@ -220,6 +222,94 @@
 
             svg {
                 width: 100%;
+            }
+        }
+    }
+}
+
+.blogs-section {
+    background: #222;
+
+    .section-main {
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+
+        .blogs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 6.25vw;
+
+            .blog {
+                &:nth-child(even) {
+                    margin-top: 50px;
+                }
+
+                .b-inner {
+                    .b-txt-box {
+                        display: grid;
+                        grid-template-columns: 3.75vw 1fr auto;
+                        color: #fff;
+                        margin-bottom: 20px;
+
+                        .b-txt-box-1 {
+                            text-align: center;
+
+                            .b-round-num {
+                                font-family: $primary-font;
+                                font-weight: 600;
+                                @include font-size(1.1rem);
+                            }
+
+                            .b-year {
+                                display: block;
+                                margin-top: 15px;
+                                font-family: $primary-font;
+                                font-weight: 300;
+                                @include font-size(1.3rem);
+                                color: #838383;
+                            }
+                        }
+
+                        .b-txt-box-2 {
+                            .b-title {
+                                font-family: $secondary-font;
+                                font-weight: 700;
+                                @include font-size(2.2rem);
+                            }
+                        }
+                    }
+
+                    .b-img {
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .read-more-btn-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+
+            .read-more-btn {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                font-family: $primary-font;
+                font-weight: 500;
+                @include font-size(3rem);
+                text-transform: uppercase;
+                color: #fff;
+                background-color: transparent;
+                text-decoration: none;
+                display: inline-block;
+                text-align: center;
             }
         }
     }

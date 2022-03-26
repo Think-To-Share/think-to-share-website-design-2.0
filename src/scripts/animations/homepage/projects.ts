@@ -1,11 +1,7 @@
 import { gsap } from "gsap";
 import { PageAnimation } from "../interfaces/PageAnimation";
 
-const tl = gsap.timeline({
-    paused: true,
-})
-
-export default class {
+export class ProjectsAnimation {
     private animation: PageAnimation;
 
     private activeSlide = 1;
@@ -17,7 +13,7 @@ export default class {
     }
 
     init(): gsap.core.Timeline {
-        const slides = gsap.utils.toArray('.projects-section .section-main .slide')
+        const slides = gsap.utils.toArray('.projects-section .section-main .slide') as gsap.TweenTarget[]
         gsap.set('.projects-section .section-main', {
             xPercent: 10,
         })
@@ -36,7 +32,18 @@ export default class {
             paused: true,
             onUpdate: () => {
                 this.animate(slides)
-            }
+            },
+            // onComplete: () => {
+            //     if(! this.animation.scrollForward) {
+            //         gsap.to('.projects-section', {
+            //             autoAlpha: 1,
+            //         })
+            //     }else {
+            //         gsap.to('.projects-section', {
+            //             autoAlpha: 0,
+            //         })
+            //     }
+            // }
         })
 
         tl.to('.projects-section', {
