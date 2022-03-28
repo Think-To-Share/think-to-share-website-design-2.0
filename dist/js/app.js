@@ -7443,10 +7443,10 @@ var BlogsAnimation = /*#__PURE__*/ function() {
     function BlogsAnimation(animation) {
         _classCallCheck(this, BlogsAnimation);
         this.animation = animation;
+        this.registerSectionAnimations();
     }
     var _proto = BlogsAnimation.prototype;
     _proto.init = function init() {
-        var blogs = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".blogs-section .section-main .blog");
         var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
             paused: true
         });
@@ -7460,7 +7460,29 @@ var BlogsAnimation = /*#__PURE__*/ function() {
             delay: 0.2,
             ease: "none"
         });
+        tl.from(".blogs-section .section-main .read-more-btn", {
+            autoAlpha: 0,
+            y: 100
+        });
         return tl;
+    };
+    _proto.registerSectionAnimations = function registerSectionAnimations() {
+        var read_more_btn = document.querySelector(".blogs-section .read-more-btn");
+        var read_more_txt = read_more_btn.querySelector(".read-more-btn-txt");
+        read_more_btn.addEventListener("mouseenter", function() {
+            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(read_more_txt, {
+                y: 15,
+                autoAlpha: 0,
+                duration: 0.2
+            });
+        });
+        read_more_btn.addEventListener("mouseleave", function() {
+            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(read_more_txt, {
+                y: 0,
+                autoAlpha: 1,
+                duration: 0.2
+            });
+        });
     };
     return BlogsAnimation;
 }();

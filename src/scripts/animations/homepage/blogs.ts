@@ -6,10 +6,10 @@ export class BlogsAnimation {
 
     constructor(animation: PageAnimation) {
         this.animation = animation
+        this.registerSectionAnimations();
     }
 
     init(): gsap.core.Timeline {
-        const blogs = gsap.utils.toArray('.blogs-section .section-main .blog') as gsap.TweenTarget[]
         const tl = gsap.timeline({
             paused: true,
         })
@@ -25,7 +25,33 @@ export class BlogsAnimation {
             delay: 0.2,
             ease: 'none',
         })
+        
+        tl.from('.blogs-section .section-main .read-more-btn', {
+            autoAlpha: 0,
+            y: 100,
+        })
 
         return tl;
+    }
+
+    registerSectionAnimations() {
+        const read_more_btn = document.querySelector('.blogs-section .read-more-btn');
+        const read_more_txt = read_more_btn.querySelector('.read-more-btn-txt');
+
+        read_more_btn.addEventListener('mouseenter', () => {
+            gsap.to(read_more_txt, {
+                y: 15,
+                autoAlpha: 0,
+                duration: 0.2,
+            })
+        })
+
+        read_more_btn.addEventListener('mouseleave', () => {
+            gsap.to(read_more_txt, {
+                y: 0,
+                autoAlpha: 1,
+                duration: 0.2,
+            })
+        })
     }
 };

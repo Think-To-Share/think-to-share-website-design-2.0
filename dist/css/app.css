@@ -13597,19 +13597,32 @@ textarea.form-control-lg {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-family: "Heebo", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: calc(1.425rem + 2.1vw);
   text-transform: uppercase;
+  letter-spacing: 10px;
   color: #fff;
   background-color: transparent;
   text-decoration: none;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   text-align: center;
+  border: 2px solid #fff;
+  padding: 12px 30px;
+  gap: 35px;
 }
 @media (min-width: 1200px) {
   .blogs-section .section-main .read-more-btn-container .read-more-btn {
     font-size: 3rem;
   }
+}
+.blogs-section .section-main .read-more-btn-container .read-more-btn .read-more-btn-icon svg {
+  --size: 45px;
+  width: var(--size);
+  height: var(--size);
+  color: #fff;
 }
 
 /*# sourceMappingURL=app.css.map*/
