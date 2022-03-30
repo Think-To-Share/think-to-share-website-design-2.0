@@ -13618,11 +13618,13 @@ textarea.form-control-lg {
     font-size: 3rem;
   }
 }
-.blogs-section .section-main .read-more-btn-container .read-more-btn .read-more-btn-icon svg {
-  --size: 45px;
-  width: var(--size);
-  height: var(--size);
-  color: #fff;
+.blogs-section .section-main .read-more-btn-container .read-more-btn .read-more-btn-alt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map*/

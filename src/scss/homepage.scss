@@ -315,13 +315,21 @@
                 padding: 12px 30px;
                 gap: 35px;
             
-                .read-more-btn-icon {
-                    svg {
-                        --size: 45px;
-                        width: var(--size);
-                        height: var(--size);
-                        color: #fff;
-                    }
+                // .read-more-btn-icon {
+                //     svg {
+                //         --size: 45px;
+                //         width: var(--size);
+                //         height: var(--size);
+                //         color: #fff;
+                //     }
+                // }
+
+                .read-more-btn-alt {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
                 }
             }
         }

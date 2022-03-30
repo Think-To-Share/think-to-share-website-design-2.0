@@ -7469,15 +7469,58 @@ var BlogsAnimation = /*#__PURE__*/ function() {
     _proto.registerSectionAnimations = function registerSectionAnimations() {
         var read_more_btn = document.querySelector(".blogs-section .read-more-btn");
         var read_more_txt = read_more_btn.querySelector(".read-more-btn-txt");
+        var read_more_txt_alt = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(read_more_btn.querySelectorAll(".read-more-btn-alt .char"));
+        var enter_animation = null;
+        var exit_animation = null;
+        read_more_txt_alt.forEach(function(char) {
+            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(char, {
+                autoAlpha: 0,
+                y: -30
+            });
+        });
         read_more_btn.addEventListener("mouseenter", function() {
-            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(read_more_txt, {
+            enter_animation = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({});
+            if (exit_animation) {
+                exit_animation.kill();
+                exit_animation = null;
+            }
+            // Start new animation
+            enter_animation.fromTo(read_more_txt, {
+                y: 0,
+                autoAlpha: 1
+            }, {
                 y: 15,
                 autoAlpha: 0,
                 duration: 0.2
             });
+            enter_animation.fromTo(read_more_txt_alt, {
+                y: -30,
+                autoAlpha: 0
+            }, {
+                y: 0,
+                autoAlpha: 1,
+                stagger: 0.1
+            });
         });
         read_more_btn.addEventListener("mouseleave", function() {
-            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(read_more_txt, {
+            exit_animation = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({});
+            if (enter_animation) {
+                enter_animation.kill();
+                enter_animation = null;
+            }
+            // Start new animations
+            exit_animation.fromTo(read_more_txt_alt, {
+                y: 0,
+                autoAlpha: 1
+            }, {
+                y: -30,
+                autoAlpha: 0,
+                duration: 0.2
+            });
+            exit_animation.fromTo(read_more_txt, {
+                y: 0,
+                autoAlpha: 1
+            }, {
                 y: 0,
                 autoAlpha: 1,
                 duration: 0.2
