@@ -228,7 +228,6 @@
 }
 
 .blogs-section {
-    padding-top: 50px;
     background: #222;
 
     .section-main {
@@ -239,6 +238,7 @@
         .blogs {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            padding-top: 50px;
             gap: 0 6.25vw;
 
             .blog {

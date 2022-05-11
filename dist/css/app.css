@@ -13528,7 +13528,6 @@ textarea.form-control-lg {
 }
 
 .blogs-section {
-  padding-top: 50px;
   background: #222;
 }
 .blogs-section .section-main {
@@ -13539,6 +13538,7 @@ textarea.form-control-lg {
 .blogs-section .section-main .blogs {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-top: 50px;
   gap: 0 6.25vw;
 }
 .blogs-section .section-main .blogs .blog:nth-child(even) {
