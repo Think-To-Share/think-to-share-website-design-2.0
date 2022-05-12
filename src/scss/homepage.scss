@@ -229,7 +229,7 @@
 
 .blogs-section {
     background: #222;
-
+    z-index: 2;
     .section-main {
         width: 80%;
         margin: 0 auto;
@@ -434,6 +434,41 @@
             }
         }
 
+    }
+    
+}
+
+.testimonials-section{
+    z-index: 10;
+    background-color: #fff;
+    .section-main{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .swiper{
+            width: 100%;
+            .swiper-wrapper{
+                .swiper-slide{
+                    .testimonial-text{
+                        @include font-size(3rem);
+                        margin: 0;
+                        line-height: 1.1;
+                        font-family: $secondary-font;
+                        font-weight: 400;
+                        color: #000;
+                    }
+                    .testimonial-author{
+                        @include font-size(4rem);
+                        margin:0;
+                        padding-top: 30px;
+                        font-family: $secondary-font;
+                        font-weight: 500;
+                        color: #000; 
+                    }
+                }
+            }
+        }
     }
     
 }

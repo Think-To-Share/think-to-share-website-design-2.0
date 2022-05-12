@@ -26,6 +26,7 @@
     "perfect-scrollbar": "^1.5.1",
     "rfs": "^9.0.6",
     "splitting": "^1.0.6",
+    "swiper": "^8.1.4",
     "tiny-slider": "^2.9.3"
   },
   "browserslist": [

@@ -2,6 +2,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import { Animation } from "./animations";
 import Splitting from "splitting";
 
+
 Splitting();
 
 const scrollContainer = document.querySelector('.scroll-container');
