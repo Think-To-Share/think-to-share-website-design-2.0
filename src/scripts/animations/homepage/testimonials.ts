@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { PageAnimation } from "../interfaces/PageAnimation";
-import Swiper from 'swiper';
+import Swiper, { Navigation, Pagination,Autoplay } from 'swiper';
 
 export class TestimonialsAnimation {
     private animation: PageAnimation;
@@ -14,11 +14,23 @@ export class TestimonialsAnimation {
         const tl = gsap.timeline({
             paused: true,
         })
+        tl.from('.testimonials-section',{
+            xPercent:100,
+        })
+        tl.from('.testimonials-section',{
+            duration:1.2,
+        })
         return tl;
     }
 
    slideSwiper(){
-        var swiper = new Swiper(".mySwiper", {
+        Swiper.use([Autoplay]);
+        var swiper = new Swiper(".testimonialSwiper", {
+            modules: [Navigation, Pagination],
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
@@ -26,8 +38,8 @@ export class TestimonialsAnimation {
             enabled: true,
             },
             navigation: {
-            nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
             },
         });
    }

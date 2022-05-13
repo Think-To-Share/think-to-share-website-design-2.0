@@ -8067,10 +8067,27 @@ var TestimonialsAnimation = /*#__PURE__*/ function() {
         var tl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
             paused: true
         });
+        tl.from(".testimonials-section", {
+            xPercent: 100
+        });
+        tl.from(".testimonials-section", {
+            duration: 1.2
+        });
         return tl;
     };
     _proto.slideSwiper = function slideSwiper() {
-        var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".mySwiper", {
+        swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([
+            swiper__WEBPACK_IMPORTED_MODULE_0__.Autoplay
+        ]);
+        var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".testimonialSwiper", {
+            modules: [
+                swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation,
+                swiper__WEBPACK_IMPORTED_MODULE_0__.Pagination
+            ],
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false
+            },
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
@@ -8078,8 +8095,8 @@ var TestimonialsAnimation = /*#__PURE__*/ function() {
                 enabled: true
             },
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
+                prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next"
             }
         });
     };

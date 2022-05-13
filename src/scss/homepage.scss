@@ -446,29 +446,76 @@
         height: 100%;
         display: flex;
         align-items: center;
-        .swiper{
+        position: relative;
+        .testimonial-top-line{
+            height: 3px;
+            background: #000;
             width: 100%;
-            .swiper-wrapper{
-                .swiper-slide{
-                    .testimonial-text{
-                        @include font-size(3rem);
-                        margin: 0;
-                        line-height: 1.1;
-                        font-family: $secondary-font;
-                        font-weight: 400;
-                        color: #000;
+            position:absolute;
+            top:20vh;
+        }
+        .testimonial-bottom-line{
+            height: 3px;
+            background: #000;
+            width: 100%;
+            position:absolute;
+            bottom:20vh;
+        }
+        .testimonial-main{
+            position: relative;
+            .swiper{
+                width: 100%;
+                .swiper-wrapper{
+                    .swiper-slide{
+                        .testimonial-text{
+                            @include font-size(2.9rem);
+                            margin: 0;
+                            line-height: 1.1;
+                            font-family:$primary-font;
+                            font-weight: 400;
+                            color: #000;
+                        }
+                        .testimonial-author{
+                            @include font-size(3.5rem);
+                            margin:0;
+                            padding-top: 62px;
+                            font-family: $secondary-font;
+                            font-weight: 500;
+                            color: #000; 
+                        }
                     }
-                    .testimonial-author{
-                        @include font-size(4rem);
-                        margin:0;
-                        padding-top: 30px;
-                        font-family: $secondary-font;
-                        font-weight: 500;
-                        color: #000; 
-                    }
+                }
+            }
+            .swiper-button-next,
+            .swiper-button-prev{
+                &::after{
+                    content: none;
+                }
+            }
+            .swiper-button-prev{
+                left: -90px;
+                transition: opacity 0.3s ease-in-out;
+                &:hover{
+                    opacity: 0.3;
+                }
+            }
+            .swiper-button-next{
+                right: -90px;
+                transition: opacity 0.3s ease-in-out;
+                &:hover{
+                    opacity: 0.3;
                 }
             }
         }
     }
-    
+    // .testimonial-bottom-line{
+    //     margin-top: 70px;
+    //     .line-bottom{
+    //         border: 1px solid #000;
+    //         font-weight: 400;
+    //         font-family: $primary-font;
+    //         float: left;
+    //         width: 100%;
+    //     }
+    // }
 }
