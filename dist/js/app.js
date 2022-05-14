@@ -7533,6 +7533,40 @@ var BlogsAnimation = /*#__PURE__*/ function() {
 
 /***/ }),
 
+/***/ "./src/scripts/animations/homepage/faqs.ts":
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FaqsAnimation": function() { return /* binding */ FaqsAnimation; }
+/* harmony export */ });
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/gsap/index.js");
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
+
+var FaqsAnimation = /*#__PURE__*/ function() {
+    "use strict";
+    function FaqsAnimation(animation) {
+        _classCallCheck(this, FaqsAnimation);
+        this.animation = animation;
+    }
+    var _proto = FaqsAnimation.prototype;
+    _proto.init = function init() {
+        var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+            paused: true
+        });
+        return tl;
+    };
+    return FaqsAnimation;
+}();
+
+
+/***/ }),
+
 /***/ "./src/scripts/animations/homepage/hero.ts":
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -7604,12 +7638,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Homepage": function() { return /* binding */ Homepage; }
 /* harmony export */ });
 /* harmony import */ var _BasePageAnimation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/scripts/animations/BasePageAnimation.ts");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/gsap/index.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./node_modules/gsap/index.js");
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/scripts/animations/homepage/hero.ts");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/scripts/animations/homepage/services.ts");
 /* harmony import */ var _blogs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/scripts/animations/homepage/blogs.ts");
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/scripts/animations/homepage/projects.ts");
 /* harmony import */ var _testimonials__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/scripts/animations/homepage/testimonials.ts");
+/* harmony import */ var _faqs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/scripts/animations/homepage/faqs.ts");
 function _assertThisInitialized(self) {
     if (self === void 0) {
         throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -7688,6 +7723,7 @@ function _createSuper(Derived) {
 
 
 
+
 var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
     "use strict";
     _inherits(Homepage, BasePageAnimation1);
@@ -7714,21 +7750,24 @@ var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
             project_offset: 0.5,
             projects: 4,
             blogs: 4,
-            testimonials: 2
+            testimonials: 3,
+            faqs: 4
         };
         _this.progress = {
             hero: 0,
             services: 0,
             projects: 0,
             blogs: 0,
-            testimonials: 0
+            testimonials: 0,
+            faqs: 0
         };
         _this.timelines = {
             hero: new _hero__WEBPACK_IMPORTED_MODULE_1__.HeroAnimation(_this).init(),
             services: new _services__WEBPACK_IMPORTED_MODULE_2__.ServicesAnimation(_this).init(),
             projects: new _projects__WEBPACK_IMPORTED_MODULE_4__.ProjectsAnimation(_this).init(),
             blogs: new _blogs__WEBPACK_IMPORTED_MODULE_3__.BlogsAnimation(_this).init(),
-            testimonials: new _testimonials__WEBPACK_IMPORTED_MODULE_5__.TestimonialsAnimation(_this).init()
+            testimonials: new _testimonials__WEBPACK_IMPORTED_MODULE_5__.TestimonialsAnimation(_this).init(),
+            faqs: new _faqs__WEBPACK_IMPORTED_MODULE_6__.FaqsAnimation(_this).init()
         };
         _this.scrollTracks = document.querySelectorAll(".scroll-track[data-timeline]");
         _this.scrollTracksData = [];
@@ -7757,8 +7796,8 @@ var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
         this.setScrollTracksData();
         this.setScrollHeight();
         this.render();
-        gsap__WEBPACK_IMPORTED_MODULE_6__.gsap.ticker.lagSmoothing(1000, 16);
-        gsap__WEBPACK_IMPORTED_MODULE_6__.gsap.ticker.add(this.updateTimelines);
+        gsap__WEBPACK_IMPORTED_MODULE_7__.gsap.ticker.lagSmoothing(1000, 16);
+        gsap__WEBPACK_IMPORTED_MODULE_7__.gsap.ticker.add(this.updateTimelines);
     };
     _proto.registerScroll = function registerScroll() {
         var _this = this;
@@ -8068,10 +8107,26 @@ var TestimonialsAnimation = /*#__PURE__*/ function() {
             paused: true
         });
         tl.from(".testimonials-section", {
-            xPercent: 100
+            xPercent: 100,
+            duration: 0.7
         });
         tl.from(".testimonials-section", {
+            duration: 0.5
+        });
+        tl.from(".testimonial-main", {
+            autoAlpha: 0,
+            y: 50,
             duration: 1.2
+        });
+        tl.from([
+            ".testimonial-top-line",
+            ".testimonial-bottom-line"
+        ], {
+            scaleX: 0,
+            duration: 1
+        });
+        tl.from(".testimonials-section", {
+            duration: 0.8
         });
         return tl;
     };

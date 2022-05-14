@@ -16,10 +16,24 @@ export class TestimonialsAnimation {
         })
         tl.from('.testimonials-section',{
             xPercent:100,
+            duration:0.7,
         })
         tl.from('.testimonials-section',{
+            duration:0.5,
+        })
+        tl.from('.testimonial-main',{
+            autoAlpha: 0, 
+            y: 50,
             duration:1.2,
         })
+        tl.from(['.testimonial-top-line','.testimonial-bottom-line'],{
+            scaleX:0,
+            duration: 1,
+        })
+        tl.from('.testimonials-section',{
+            duration:0.8,
+        })
+
         return tl;
     }
 

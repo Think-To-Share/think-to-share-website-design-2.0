@@ -14217,6 +14217,8 @@ button.swiper-pagination-bullet {
   width: 100%;
   position: absolute;
   top: 20vh;
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 .testimonials-section .section-main .testimonial-bottom-line {
   height: 3px;
@@ -14224,6 +14226,8 @@ button.swiper-pagination-bullet {
   width: 100%;
   position: absolute;
   bottom: 20vh;
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 .testimonials-section .section-main .testimonial-main {
   position: relative;
@@ -14276,6 +14280,61 @@ button.swiper-pagination-bullet {
 }
 .testimonials-section .section-main .testimonial-main .swiper-button-next:hover {
   opacity: 0.3;
+}
+
+.faqs-section {
+  z-index: 11;
+  background-color: #000000;
+}
+.faqs-section .section-main .faq-section-heading {
+  text-align: center;
+  font-size: calc(1.525rem + 3.3vw);
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  font-weight: 700;
+  letter-spacing: 13px;
+  text-transform: uppercase;
+}
+@media (min-width: 1200px) {
+  .faqs-section .section-main .faq-section-heading {
+    font-size: 4rem;
+  }
+}
+.faqs-section .section-main .accordion-body {
+  background-color: #000;
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  font-size: 1rem;
+}
+.faqs-section .section-main .accordion-button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  background-color: #000;
+  font-size: 1rem;
+}
+.faqs-section .section-main .accordion-button::after {
+  background-image: url(data:image/svg+xml,%3Csvg%20fill%3D%22%23fff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20448%20512%22%3E%3Cpath%20d%3D%22M432%20256c0%2017.69-14.33%2032.01-32%2032.01H256v144c0%2017.69-14.33%2031.99-32%2031.99s-32-14.3-32-31.99v-144H48c-17.67%200-32-14.32-32-32.01s14.33-31.99%2032-31.99H192v-144c0-17.69%2014.33-32.01%2032-32.01s32%2014.32%2032%2032.01v144h144C417.7%20224%20432%20238.3%20432%20256z%22%2F%3E%3C%2Fsvg%3E);
+}
+.faqs-section .section-main .accordion-button:not(.collapsed) {
+  background-color: #fff;
+}
+.faqs-section .section-main .accordion-button:not(.collapsed)::after {
+  background-image: url(data:image/svg+xml,%3Csvg%20fill%3D%22%23fff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20448%20512%22%3E%3Cpath%20d%3D%22M400%20288h-352c-17.69%200-32-14.32-32-32.01s14.31-31.99%2032-31.99h352c17.69%200%2032%2014.3%2032%2031.99S417.7%20288%20400%20288z%22%2F%3E%3C%2Fsvg%3E);
+}
+.faqs-section .section-main .accordion-button:not(.collapsed) {
+  background-color: #000;
+}
+.faqs-section .section-main .accordion-item {
+  border-top: 0.1px solid rgba(255, 255, 255, 0.25);
+  border-left: none;
+  border-right: none;
+  border-bottom: 0.1px solid rgba(255, 255, 255, 0.25);
+}
+.faqs-section .section-main .accordion-button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*# sourceMappingURL=app.css.map*/
