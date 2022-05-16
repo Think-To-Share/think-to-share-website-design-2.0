@@ -9,6 +9,7 @@ import { ProjectsAnimation } from './projects'
 import { PageAnimation } from "../interfaces/PageAnimation";
 import { TestimonialsAnimation } from "./testimonials";
 import { FaqsAnimation } from "./faqs";
+import { FootersAnimation } from "./footers";
 
 
 export class Homepage extends BasePageAnimation implements PageAnimation {
@@ -34,7 +35,8 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
         projects: 4,
         blogs: 4,
         testimonials: 3,
-        faqs:4,
+        faqs:3,
+        footers:4,
     }
 
     progress: {[key:string]: number} = {
@@ -44,6 +46,7 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
         blogs: 0,
         testimonials: 0,
         faqs:0,
+        footers:0,
     }
 
     private timelines: {[key:string]: gsap.core.Timeline} = {
@@ -53,6 +56,7 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
         blogs: new BlogsAnimation(this).init(),
         testimonials: new TestimonialsAnimation(this).init(),
         faqs: new FaqsAnimation(this).init(),
+        footers: new FootersAnimation(this).init(),
     }
 
     private scrollTracks = document.querySelectorAll<HTMLElement>('.scroll-track[data-timeline]')

@@ -7559,9 +7559,61 @@ var FaqsAnimation = /*#__PURE__*/ function() {
         var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
             paused: true
         });
+        tl.from(".faqs-section", {
+            yPercent: 100
+        });
+        tl.from(".faqs-section", {
+            duration: 0.5
+        });
+        tl.from(".faq-section-heading", {
+            autoAlpha: 0,
+            scale: 0,
+            duration: 1
+        });
+        tl.from(".accordion-item", {
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.8,
+            ease: "power4.out",
+            stagger: 0.3
+        });
         return tl;
     };
     return FaqsAnimation;
+}();
+
+
+/***/ }),
+
+/***/ "./src/scripts/animations/homepage/footers.ts":
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FootersAnimation": function() { return /* binding */ FootersAnimation; }
+/* harmony export */ });
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/gsap/index.js");
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
+
+var FootersAnimation = /*#__PURE__*/ function() {
+    "use strict";
+    function FootersAnimation(animation) {
+        _classCallCheck(this, FootersAnimation);
+        this.animation = animation;
+    }
+    var _proto = FootersAnimation.prototype;
+    _proto.init = function init() {
+        var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+            paused: true
+        });
+        return tl;
+    };
+    return FootersAnimation;
 }();
 
 
@@ -7638,13 +7690,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Homepage": function() { return /* binding */ Homepage; }
 /* harmony export */ });
 /* harmony import */ var _BasePageAnimation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/scripts/animations/BasePageAnimation.ts");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./node_modules/gsap/index.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./node_modules/gsap/index.js");
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/scripts/animations/homepage/hero.ts");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/scripts/animations/homepage/services.ts");
 /* harmony import */ var _blogs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/scripts/animations/homepage/blogs.ts");
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./src/scripts/animations/homepage/projects.ts");
 /* harmony import */ var _testimonials__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./src/scripts/animations/homepage/testimonials.ts");
 /* harmony import */ var _faqs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./src/scripts/animations/homepage/faqs.ts");
+/* harmony import */ var _footers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./src/scripts/animations/homepage/footers.ts");
 function _assertThisInitialized(self) {
     if (self === void 0) {
         throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -7724,6 +7777,7 @@ function _createSuper(Derived) {
 
 
 
+
 var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
     "use strict";
     _inherits(Homepage, BasePageAnimation1);
@@ -7751,7 +7805,8 @@ var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
             projects: 4,
             blogs: 4,
             testimonials: 3,
-            faqs: 4
+            faqs: 3,
+            footers: 4
         };
         _this.progress = {
             hero: 0,
@@ -7759,7 +7814,8 @@ var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
             projects: 0,
             blogs: 0,
             testimonials: 0,
-            faqs: 0
+            faqs: 0,
+            footers: 0
         };
         _this.timelines = {
             hero: new _hero__WEBPACK_IMPORTED_MODULE_1__.HeroAnimation(_this).init(),
@@ -7767,7 +7823,8 @@ var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
             projects: new _projects__WEBPACK_IMPORTED_MODULE_4__.ProjectsAnimation(_this).init(),
             blogs: new _blogs__WEBPACK_IMPORTED_MODULE_3__.BlogsAnimation(_this).init(),
             testimonials: new _testimonials__WEBPACK_IMPORTED_MODULE_5__.TestimonialsAnimation(_this).init(),
-            faqs: new _faqs__WEBPACK_IMPORTED_MODULE_6__.FaqsAnimation(_this).init()
+            faqs: new _faqs__WEBPACK_IMPORTED_MODULE_6__.FaqsAnimation(_this).init(),
+            footers: new _footers__WEBPACK_IMPORTED_MODULE_7__.FootersAnimation(_this).init()
         };
         _this.scrollTracks = document.querySelectorAll(".scroll-track[data-timeline]");
         _this.scrollTracksData = [];
@@ -7796,8 +7853,8 @@ var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
         this.setScrollTracksData();
         this.setScrollHeight();
         this.render();
-        gsap__WEBPACK_IMPORTED_MODULE_7__.gsap.ticker.lagSmoothing(1000, 16);
-        gsap__WEBPACK_IMPORTED_MODULE_7__.gsap.ticker.add(this.updateTimelines);
+        gsap__WEBPACK_IMPORTED_MODULE_8__.gsap.ticker.lagSmoothing(1000, 16);
+        gsap__WEBPACK_IMPORTED_MODULE_8__.gsap.ticker.add(this.updateTimelines);
     };
     _proto.registerScroll = function registerScroll() {
         var _this = this;

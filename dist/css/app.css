@@ -14286,6 +14286,18 @@ button.swiper-pagination-bullet {
   z-index: 11;
   background-color: #000000;
 }
+.faqs-section .section-main {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .faqs-section .section-main .faq-section-heading {
   text-align: center;
   font-size: calc(1.525rem + 3.3vw);
@@ -14331,10 +14343,16 @@ button.swiper-pagination-bullet {
   border-left: none;
   border-right: none;
   border-bottom: 0.1px solid rgba(255, 255, 255, 0.25);
+  margin-top: 3px;
 }
 .faqs-section .section-main .accordion-button:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.footer-section {
+  z-index: 12;
+  background-color: #000000;
 }
 
 /*# sourceMappingURL=app.css.map*/
