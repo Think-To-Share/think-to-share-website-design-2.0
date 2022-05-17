@@ -7611,6 +7611,10 @@ var FootersAnimation = /*#__PURE__*/ function() {
         var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
             paused: true
         });
+        tl.from(".footer-section", {
+            yPercent: -100,
+            duration: 4
+        });
         return tl;
     };
     return FootersAnimation;
@@ -7806,7 +7810,7 @@ var Homepage = /*#__PURE__*/ function(BasePageAnimation1) {
             blogs: 4,
             testimonials: 3,
             faqs: 3,
-            footers: 4
+            footers: 5
         };
         _this.progress = {
             hero: 0,

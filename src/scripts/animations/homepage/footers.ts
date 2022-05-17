@@ -12,6 +12,10 @@ export class FootersAnimation {
         const tl = gsap.timeline({
             paused: true,
         })
+        tl.from('.footer-section',{
+            yPercent: -100,
+            duration: 4
+        })
         return tl;
     }
 

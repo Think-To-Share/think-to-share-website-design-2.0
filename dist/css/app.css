@@ -14354,5 +14354,45 @@ button.swiper-pagination-bullet {
   z-index: 12;
   background-color: #000000;
 }
+.footer-section .section-main ul .footer_section_listItem {
+  list-style-type: none;
+}
+.footer-section .section-main ul .footer_section_listItem .footer_section_listItem_main {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+.footer-section .section-main ul .footer_section_listItem .footer_section_listItem_main .footer_section_listItem_link {
+  text-decoration: none;
+  padding-bottom: 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.footer-section .section-main ul .footer_section_listItem .footer_section_listItem_main .footer_section_listItem_link .footer_section_listItem_title {
+  font-size: calc(1.565rem + 3.78vw);
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+@media (min-width: 1200px) {
+  .footer-section .section-main ul .footer_section_listItem .footer_section_listItem_main .footer_section_listItem_link .footer_section_listItem_title {
+    font-size: 4.4rem;
+  }
+}
+.footer-section .section-main ul .footer_section_listItem .footer_section_listItem_main .footer_section_listItem_link:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
 
 /*# sourceMappingURL=app.css.map*/

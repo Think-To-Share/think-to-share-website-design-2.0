@@ -36,7 +36,7 @@ export class Homepage extends BasePageAnimation implements PageAnimation {
         blogs: 4,
         testimonials: 3,
         faqs:3,
-        footers:4,
+        footers:5,
     }
 
     progress: {[key:string]: number} = {
