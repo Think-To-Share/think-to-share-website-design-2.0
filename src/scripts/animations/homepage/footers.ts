@@ -8,14 +8,23 @@ export class FootersAnimation {
         this.animation = animation
     }
 
+
     init(): gsap.core.Timeline{
         const tl = gsap.timeline({
             paused: true,
         })
+        const footerContent = gsap.utils.toArray('.footer_section_listItem')
+
         tl.from('.footer-section',{
-            yPercent: -100,
-            duration: 4
+            xPercent: -100,
+            duration: 0.1,
         })
+
+        tl.to(footerContent, {
+            yPercent: -100,
+            duration: 1
+        })
+       
         return tl;
     }
 

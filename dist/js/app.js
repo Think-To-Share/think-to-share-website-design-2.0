@@ -7611,9 +7611,14 @@ var FootersAnimation = /*#__PURE__*/ function() {
         var tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
             paused: true
         });
+        var footerContent = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".footer_section_listItem");
         tl.from(".footer-section", {
+            xPercent: -100,
+            duration: 0.1
+        });
+        tl.to(footerContent, {
             yPercent: -100,
-            duration: 4
+            duration: 1
         });
         return tl;
     };
